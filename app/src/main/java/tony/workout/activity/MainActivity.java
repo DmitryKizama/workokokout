@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         tvMonday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sspa = new Intent(MainActivity.this, ScreenSlidePagerActivity.class);
+                Intent sspa = new Intent(MainActivity.this, DayActivity.class);
                 startActivity(sspa);
             }
         });
