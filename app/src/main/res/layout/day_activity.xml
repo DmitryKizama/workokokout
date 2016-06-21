@@ -16,4 +16,13 @@
 
         </android.support.v4.view.PagerTitleStrip>
     </android.support.v4.view.ViewPager>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+
+        android:layout_centerHorizontal="true"
+        android:text="Add" />
 </RelativeLayout>

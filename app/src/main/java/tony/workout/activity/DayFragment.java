@@ -11,12 +11,13 @@ import android.widget.TextView;
 import java.util.Random;
 
 import tony.workout.R;
+import tony.workout.helper.Constant;
 
 public class DayFragment extends Fragment {
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
 
-    int pageNumber;
     int backColor;
+    String msg;
 
     static DayFragment newInstance(int page) {
         DayFragment pageFragment = new DayFragment();
@@ -29,7 +30,34 @@ public class DayFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageNumber = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
+        int pageNumber = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
+
+        switch (pageNumber){
+            case 0:
+                msg = Constant.MONDAY;
+                break;
+            case 1:
+                msg = Constant.TUESDAY;
+                break;
+            case 2:
+                msg = Constant.WEDNESDAY;
+                break;
+            case 3:
+                msg = Constant.THURSDAY;
+                break;
+            case 4:
+                msg = Constant.FRIDAY;
+                break;
+            case 5:
+                msg = Constant.SATURDAY;
+                break;
+            case 6:
+                msg = Constant.SUNDAY;
+                break;
+            default:
+                msg = "ERROR, PLEASE TURN TO GOD FOR HELP";
+                break;
+        }
 
         Random rnd = new Random();
         backColor = Color.argb(40, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
@@ -41,9 +69,11 @@ public class DayFragment extends Fragment {
         View view = inflater.inflate(R.layout.day_fragment, null);
 
         TextView tvPage = (TextView) view.findViewById(R.id.tvPage);
-        tvPage.setText("Page " + pageNumber);
+        tvPage.setText(msg);
         tvPage.setBackgroundColor(backColor);
 
         return view;
     }
+
+
 }
