@@ -1,13 +1,23 @@
 package tony.workout.base;
 
-public class Input {
+import java.io.Serializable;
 
-    String workout_name;
+public class Input implements Serializable{
+
+    String workoutName;
     int number_of_approaches;
     int number_of_repetitions;
 
-    public String getWorkout_name() {
-        return workout_name;
+    public Input(String name, int approaches, int repetition){
+        workoutName = name;
+        number_of_approaches = approaches;
+        number_of_repetitions = repetition;
+    }
+
+    public Input(){}
+
+    public String getWorkoutName() {
+        return workoutName;
     }
 
     public int getNumber_of_approaches() {
@@ -18,8 +28,8 @@ public class Input {
         return number_of_repetitions;
     }
 
-    public void setWorkout_name(String workout_name) {
-        this.workout_name = workout_name;
+    public void setWorkoutName(String workoutName) {
+        this.workoutName = workoutName;
     }
 
     public void setNumber_of_approaches(int number_of_approaches) {
@@ -32,6 +42,6 @@ public class Input {
 
     @Override
     public String toString() {
-        return (getWorkout_name() + " - " + getNumber_of_approaches() + " - " + getNumber_of_repetitions());
+        return (getWorkoutName() + " - " + getNumber_of_approaches() + " - " + getNumber_of_repetitions());
     }
 }

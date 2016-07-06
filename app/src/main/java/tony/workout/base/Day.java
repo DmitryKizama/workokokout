@@ -1,19 +1,20 @@
 package tony.workout.base;
 
 import java.util.ArrayList;
+import java.util.List;
 
 abstract public class Day {
-    ArrayList<Input> list_exercise = new ArrayList();
+    List<Input> list_exercise = new ArrayList();
 
-    public void setList_exercise(ArrayList<Input> list_exercise) {
+    public void setList(List<Input> list_exercise) {
         this.list_exercise = list_exercise;
     }
 
-    public ArrayList<Input> getList_exercise() {
+    public List<Input> getList() {
         return list_exercise;
     }
 
-    public Input getExerciseAbout(int num){
+    public Input getOneInput(int num){
         return list_exercise.get(num);
     }
 
