@@ -9,15 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import tony.workout.data.InputData;
 import tony.workout.R;
 import tony.workout.adapters.TraningAdapter;
-import tony.workout.base.Day;
-import tony.workout.base.Input;
-import tony.workout.base.Monday;
+import tony.workout.helper.Input;
 
 public class DayFragment extends Fragment {
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
@@ -31,16 +31,17 @@ public class DayFragment extends Fragment {
     int page;
     int countInputs;
     RecyclerView rv;
-    Day day;
     TraningAdapter adapter;
+    List<Input> lst;
+    private InputData inData;
 
-    public static DayFragment newInstance(int page, Day dayListExercise) {
+    public static DayFragment newInstance(int page, List<Input> dayListExercise) {
         DayFragment d = new DayFragment();
         Bundle args = new Bundle();
         args.putInt(ARGUMENT_PAGE_NUMBER, page);
 
         int i = 0;
-        for (Input in : dayListExercise.getList()){
+        for (Input in : dayListExercise) {
             args.putSerializable(ARGUMENT_WORKOUT_NAME + i, in);
             i++;
         }
@@ -53,10 +54,10 @@ public class DayFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        day = new Monday();
+        lst = new ArrayList();
         for (int i = 0; i < getArguments().getInt(ARGUMENT_COUNT_INPUT); i++) {
             Input in = (Input) getArguments().getSerializable(ARGUMENT_WORKOUT_NAME + i);
-            day.getList().add(in);
+            lst.add(in);
         }
         page = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
 
@@ -64,24 +65,33 @@ public class DayFragment extends Fragment {
         backColor = Color.argb(40, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
-    public void addNewItem(Input newInp) {
-        adapter.onAdd(newInp);
+    public void addNewItem(Input input) {
+        if (inData == null) {
+            inData = new InputData(input.getWorkoutName(), input.getNumber_of_approaches(), input.getNumber_of_repetitions());
+        } else {
+            inData.setName(input.getWorkoutName());
+            inData.setApproaches(input.getNumber_of_approaches());
+            inData.setRepetition(input.getNumber_of_repetitions());
+            inData.save();
+        }
+        adapter.onAdd(input);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                               Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.day_fragment, container, false);
 
         Log.d("My", "Enter to creat view");
         Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
-        adapter = new TraningAdapter(day.getList());
+        adapter = new TraningAdapter(lst);
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
-
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(mLayoutManager);
+
+
         return view;
     }
 

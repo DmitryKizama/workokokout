@@ -1,8 +1,6 @@
 package tony.workout.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -14,59 +12,65 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import tony.workout.R;
-import tony.workout.base.Day;
-import tony.workout.base.Friday;
-import tony.workout.base.Input;
-import tony.workout.base.Monday;
-import tony.workout.base.Saturday;
-import tony.workout.base.Sunday;
-import tony.workout.base.Thursday;
-import tony.workout.base.Tuesday;
-import tony.workout.base.Wednesday;
 import tony.workout.helper.Constant;
+import tony.workout.helper.Input;
+import tony.workout.helper.UIhelper;
 
-public class DayActivity extends FragmentActivity {
+public class DayActivity extends FragmentActivity implements MyPopupWindow.DialogListener {
     static final String TAG = "myLogs";
     static final int PAGE_COUNT = 7;
+    public final static int REQUEST_CODE_OJ_INPUT = 1;
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
     private Button btnAdd;
-    private Intent day;
-    private int msgDay;
-    private List<Day> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.day_activity);
 
-        day = getIntent();
-        getIntentInfo();
-        list = new ArrayList();
-        final Monday mon = new Monday();
-        Tuesday tue = new Tuesday();
-        Wednesday wed = new Wednesday();
-        Thursday thu = new Thursday();
-        Friday fri = new Friday();
-        Saturday sut = new Saturday();
-        Sunday sun = new Sunday();
-        list.add(mon);
-        list.add(tue);
-        list.add(wed);
-        list.add(thu);
-        list.add(fri);
-        list.add(sut);
-        list.add(sun);
+        int msgDay = 0;
+        if (getIntent() != null) {
+            msgDay = getIntent().getIntExtra(MainActivity.DAY, 0);
+        }
 
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (Button) findViewById(R.id.btnAdd);
 
+        //TODO: MAKE DOWNLOAD FROM THE BASE
+        ArrayList<ArrayList<Input>> listOLists = new ArrayList<ArrayList<Input>>();
+        ArrayList<Input> mon = new ArrayList<Input>();
+        mon.add(new Input("mon", 0, 0));
+        listOLists.add(mon);
 
-        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), list);
+        ArrayList<Input> tue = new ArrayList<Input>();
+        tue.add(new Input("tue", 1, 1));
+        listOLists.add(tue);
+
+        ArrayList<Input> wed = new ArrayList<Input>();
+        wed.add(new Input("wed", 2, 2));
+        listOLists.add(wed);
+
+        ArrayList<Input> thu = new ArrayList<Input>();
+        thu.add(new Input("thu", 3, 3));
+        listOLists.add(thu);
+
+        ArrayList<Input> fri = new ArrayList<Input>();
+        fri.add(new Input("fri", 4, 4));
+        listOLists.add(fri);
+
+        ArrayList<Input> sun = new ArrayList<Input>();
+        sun.add(new Input("sun", 5, 5));
+        listOLists.add(sun);
+
+        ArrayList<Input> sut = new ArrayList<Input>();
+        sut.add(new Input("sut", 6, 6));
+        listOLists.add(sut);
+
+        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), listOLists);
 
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(msgDay);
@@ -74,14 +78,9 @@ public class DayActivity extends FragmentActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Input in = new Input("huy", 2, 1);
-                Log.d("My", "courent item = " + pager.getCurrentItem());
-                pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).addNewItem(in);
-                Log.d("My", "notify data changed");
-
-                Log.d("My", "list size = " + list.get(pager.getCurrentItem()).getList().size());
-                pagerAdapter.notifyDataSetChanged();
-//                pager.setCurrentItem(pager.getCurrentItem());
+                UIhelper.init(DayActivity.this);
+                MyPopupWindow dialog = new MyPopupWindow(DayActivity.this, DayActivity.this);
+                dialog.show();
             }
         });
 
@@ -107,16 +106,21 @@ public class DayActivity extends FragmentActivity {
         });
     }
 
+    @Override
+    public void onAddPressed(Input in) {
+        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).addNewItem(in);
+        pagerAdapter.notifyDataSetChanged();
+        pager.setCurrentItem(pager.getCurrentItem());
+    }
+
+
     private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         SparseArray<DayFragment> registeredFragments = new SparseArray<DayFragment>();
-        private List<Day> programs;
 
-        public Day justGetItem(int i) {
-            return programs.get(i);
-        }
+        private ArrayList<ArrayList<Input>> programs;
 
-        public MyFragmentPagerAdapter(FragmentManager fm, List<Day> programs) {
+        public MyFragmentPagerAdapter(FragmentManager fm, ArrayList<ArrayList<Input>> programs) {
             super(fm);
             this.programs = programs;
         }
@@ -183,10 +187,5 @@ public class DayActivity extends FragmentActivity {
 
     }
 
-    private void getIntentInfo() {
-        if (day != null) {
-            msgDay = day.getIntExtra(MainActivity.DAY, 0);
-        }
-    }
 
 }

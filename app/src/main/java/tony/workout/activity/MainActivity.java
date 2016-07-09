@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         tvSaturday = findView(R.id.tvSaturday);
         tvSunday = findView(R.id.tvSunday);
 
+
+
         dayIntent = new Intent(MainActivity.this, DayActivity.class);
 
         tvMonday.setOnClickListener(new View.OnClickListener() {

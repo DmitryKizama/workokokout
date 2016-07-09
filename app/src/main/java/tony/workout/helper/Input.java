@@ -1,4 +1,4 @@
-package tony.workout.base;
+package tony.workout.helper;
 
 import java.io.Serializable;
 
