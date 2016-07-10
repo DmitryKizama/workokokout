@@ -41,36 +41,10 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
         btnAdd = (Button) findViewById(R.id.btnAdd);
 
         //TODO: MAKE DOWNLOAD FROM THE BASE
-        ArrayList<ArrayList<Input>> listOLists = new ArrayList<ArrayList<Input>>();
-        ArrayList<Input> mon = new ArrayList<Input>();
-        mon.add(new Input("mon", 0, 0));
-        listOLists.add(mon);
 
-        ArrayList<Input> tue = new ArrayList<Input>();
-        tue.add(new Input("tue", 1, 1));
-        listOLists.add(tue);
 
-        ArrayList<Input> wed = new ArrayList<Input>();
-        wed.add(new Input("wed", 2, 2));
-        listOLists.add(wed);
 
-        ArrayList<Input> thu = new ArrayList<Input>();
-        thu.add(new Input("thu", 3, 3));
-        listOLists.add(thu);
-
-        ArrayList<Input> fri = new ArrayList<Input>();
-        fri.add(new Input("fri", 4, 4));
-        listOLists.add(fri);
-
-        ArrayList<Input> sun = new ArrayList<Input>();
-        sun.add(new Input("sun", 5, 5));
-        listOLists.add(sun);
-
-        ArrayList<Input> sut = new ArrayList<Input>();
-        sut.add(new Input("sut", 6, 6));
-        listOLists.add(sut);
-
-        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), listOLists);
+        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), Category);
 
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(msgDay);
@@ -118,9 +92,9 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
 
         SparseArray<DayFragment> registeredFragments = new SparseArray<DayFragment>();
 
-        private ArrayList<ArrayList<Input>> programs;
+        private Category programs;
 
-        public MyFragmentPagerAdapter(FragmentManager fm, ArrayList<ArrayList<Input>> programs) {
+        public MyFragmentPagerAdapter(FragmentManager fm, Category programs) {
             super(fm);
             this.programs = programs;
         }

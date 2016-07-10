@@ -67,7 +67,7 @@ public class DayFragment extends Fragment {
 
     public void addNewItem(Input input) {
         if (inData == null) {
-            inData = new InputData(input.getWorkoutName(), input.getNumber_of_approaches(), input.getNumber_of_repetitions());
+            inData = InputData.create(input.getWorkoutName(), input.getNumber_of_approaches(), input.getNumber_of_repetitions());
         } else {
             inData.setName(input.getWorkoutName());
             inData.setApproaches(input.getNumber_of_approaches());

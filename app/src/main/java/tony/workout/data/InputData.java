@@ -7,7 +7,7 @@ import com.activeandroid.query.Select;
 
 import java.util.List;
 
-@Table(name = "InputData")
+@Table(name = "InputDataTR")
 public class InputData extends Model {
 
     public static final String NAME = "NAME_OF_INPUT";
@@ -15,15 +15,18 @@ public class InputData extends Model {
     public static final String APPROACHES = "APPROACHES_OF_INPUT";
     public static final String REPETITION = "REPETITION_OF_INPUT";
     public static int idCounter;
-    static {
-        InputData inputData = new Select().from(InputData.class).orderBy(ID + " DESC").executeSingle();
-        if (inputData != null) {
-            idCounter = inputData.idNumber;
-        } else {
-            idCounter = 0;
-        }
-    }
+//    static {
+//        InputData inputData = new Select().from(InputData.class).orderBy(ID + " DESC").executeSingle();
+//        if (inputData != null) {
+//            idCounter = inputData.idNumber;
+//        } else {
+//            idCounter = 0;
+//        }
+//    }
 
+//    public static enum DAY{
+//        int MONDAY;
+//    }
 
     @Column(name = NAME)
     private String name;
@@ -37,15 +40,6 @@ public class InputData extends Model {
     @Column(name = ID)
     private int idNumber;
 
-
-    public InputData(String name, int apr, int rep) {
-        super();
-        this.name = name;
-        this.approaches = apr;
-        this.repetition = rep;
-        this.idNumber = ++idCounter;
-        save();
-    }
 
     public int getApproaches() {
         return approaches;
@@ -84,6 +78,21 @@ public class InputData extends Model {
         super();
     }
 
+    public static InputData create(String name, int apr, int rep){
+        InputData data = new InputData();
+        data.name = name;
+        data.approaches = apr;
+        data.repetition = rep;
+        data.idNumber = ++idCounter;
+        data.save();
+
+        return data;
+    }
+
+
+//    public static List<InputData> getAllByCategory(String catery){
+//        InputData data = new InputData();
+//    }
 
     public static InputData findbyId(int id) {
         return new Select().from(InputData.class).where(ID + "= ?", id).executeSingle();

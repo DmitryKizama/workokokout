@@ -29,7 +29,6 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public void onDelete(int position) {
         inputs.remove(position);
         notifyItemRemoved(position);
-        notifyDataSetChanged();
     }
 
     /**

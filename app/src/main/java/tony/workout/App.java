@@ -1,10 +1,12 @@
 package tony.workout;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.activeandroid.ActiveAndroid;
-import com.activeandroid.app.Application;
+import com.activeandroid.Configuration;
 
+import tony.workout.data.InputData;
 import tony.workout.helper.UIhelper;
 
 public class App extends Application {
@@ -18,10 +20,12 @@ public class App extends Application {
         appContext = getApplicationContext();
 
         UIhelper.init(appContext);
+//        Configuration.Builder config = new Configuration.Builder(this);
+//        config.addModelClasses(InputData.class);
         ActiveAndroid.initialize(this);
     }
 
-    public static synchronized Context getAppContext(){
+    public static synchronized Context getAppContext() {
         return appContext;
     }
 }

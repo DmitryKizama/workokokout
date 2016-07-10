@@ -12,14 +12,14 @@
 
         <meta-data
             android:name="AA_DB_NAME"
-            android:value="Pickrand.db" />
+            android:value="DataBaseWorkout.db" />
         <meta-data
             android:name="AA_DB_VERSION"
             android:value="1" />
 
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.tony.workout.data.InputData" />
+            android:value="tony.workout.data.InputData" />
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>
@@ -28,7 +28,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DayActivity"></activity>
+
+
+        <activity android:name=".activity.DayActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+
+
+        </activity>
 
     </application>
 
