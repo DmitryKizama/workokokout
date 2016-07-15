@@ -10,16 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import tony.workout.R;
-import tony.workout.helper.Input;
 import tony.workout.helper.UIhelper;
 
-public class MyPopupWindow extends Dialog {
-    /**
-     * Called when the activity is first created.
-     */
+public class DialogActivity extends Dialog {
+
 
     public interface DialogListener {
-        void onAddPressed(Input in);
+        void onAddPressed(String name, int reppetition, int approaches);
     }
 
     private DialogListener dialogListener;
@@ -30,8 +27,7 @@ public class MyPopupWindow extends Dialog {
     public static String INENT_PEPE = "INTENT_INFO_INPUT_REPETITION";
 
 
-
-    public MyPopupWindow(Context context, DialogListener dListener) {
+    public DialogActivity(Context context, DialogListener dListener) {
         super(context, R.style.AppTheme);
         this.dialogListener = dListener;
     }
@@ -39,7 +35,6 @@ public class MyPopupWindow extends Dialog {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
 
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -71,17 +66,15 @@ public class MyPopupWindow extends Dialog {
                 String name = etName.getText().toString();
                 int appr;
                 int repp;
-                try{
+                try {
                     appr = Integer.parseInt(etApproaches.getText().toString());
                     repp = Integer.parseInt(etRepetition.getText().toString());
-                } catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     appr = 0;
                     repp = 0;
                 }
 
-
-                Input in = new Input(name, appr, repp);
-                dialogListener.onAddPressed(in);
+                dialogListener.onAddPressed(name, repp, appr);
                 dismiss();
             }
         });

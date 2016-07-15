@@ -11,17 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.ArrayList;
-
 import tony.workout.R;
+import tony.workout.data.InputData;
 import tony.workout.helper.Constant;
-import tony.workout.helper.Input;
 import tony.workout.helper.UIhelper;
 
-public class DayActivity extends FragmentActivity implements MyPopupWindow.DialogListener {
+public class DayActivity extends FragmentActivity implements DialogActivity.DialogListener {
     static final String TAG = "myLogs";
     static final int PAGE_COUNT = 7;
-    public final static int REQUEST_CODE_OJ_INPUT = 1;
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
@@ -40,12 +37,7 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (Button) findViewById(R.id.btnAdd);
 
-        //TODO: MAKE DOWNLOAD FROM THE BASE
-
-
-
-        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), Category);
-
+        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(msgDay);
 
@@ -53,7 +45,7 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
             @Override
             public void onClick(View v) {
                 UIhelper.init(DayActivity.this);
-                MyPopupWindow dialog = new MyPopupWindow(DayActivity.this, DayActivity.this);
+                DialogActivity dialog = new DialogActivity(DayActivity.this, DayActivity.this);
                 dialog.show();
             }
         });
@@ -81,8 +73,8 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
     }
 
     @Override
-    public void onAddPressed(Input in) {
-        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).addNewItem(in);
+    public void onAddPressed(String name, int reppetition, int approaches) {
+        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).addNewItem(name, reppetition, approaches);
         pagerAdapter.notifyDataSetChanged();
         pager.setCurrentItem(pager.getCurrentItem());
     }
@@ -92,11 +84,8 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
 
         SparseArray<DayFragment> registeredFragments = new SparseArray<DayFragment>();
 
-        private Category programs;
-
-        public MyFragmentPagerAdapter(FragmentManager fm, Category programs) {
+        public MyFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
-            this.programs = programs;
         }
 
         @Override
@@ -133,7 +122,7 @@ public class DayActivity extends FragmentActivity implements MyPopupWindow.Dialo
 
         @Override
         public DayFragment getItem(int position) {
-            DayFragment day = DayFragment.newInstance(position, programs.get(position));
+            DayFragment day = DayFragment.newInstance(position);
             return day;
         }
 

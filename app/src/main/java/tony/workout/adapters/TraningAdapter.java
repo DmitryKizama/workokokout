@@ -8,27 +8,28 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import tony.workout.R;
-import tony.workout.helper.Input;
+import tony.workout.data.InputData;
 
 
 public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    private List<Input> inputs;
+    private List<InputData> inputs;
 
+    public interface AdapterListener {
+        void onDeletePressed(int position);
+    }
 
-    public TraningAdapter(List<Input> records) {
+    private AdapterListener adapterListener;
+
+    public TraningAdapter(List<InputData> records, AdapterListener listener) {
         this.inputs = records;
         notifyDataSetChanged();
+        this.adapterListener = listener;
     }
 
-    public void onAdd(Input input) {
+    public void onAdd(InputData input) {
         inputs.add(input);
         notifyItemInserted(inputs.size() - 1);
-    }
-
-    public void onDelete(int position) {
-        inputs.remove(position);
-        notifyItemRemoved(position);
     }
 
     /**
@@ -45,14 +46,16 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> {
      */
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, final int i) {
-        Input input = inputs.get(i);
-        viewHolder.name.setText(input.getWorkoutName());
-        viewHolder.repetition.setText("" + input.getNumber_of_repetitions());
-        viewHolder.approaches.setText("" + input.getNumber_of_approaches());
+        InputData input = inputs.get(i);
+        viewHolder.name.setText(input.getName());
+        viewHolder.repetition.setText("" + input.getRepetition());
+        viewHolder.approaches.setText("" + input.getApproaches());
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onDelete(i);
+//                adapterListener.onDeletePressed(i);
+                inputs.remove(i);
+                notifyItemRemoved(i);
             }
         });
     }

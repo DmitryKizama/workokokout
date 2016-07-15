@@ -7,17 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import tony.workout.R;
+import tony.workout.data.InputData;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String DAY = "DAY";
-    public static final int MONDAY = 0;
-    public static final int TUESDAY = 1;
-    public static final int WEDNESDAY = 2;
-    public static final int THURSDAY = 3;
-    public static final int FRIDAY = 4;
-    public static final int SATURDAY = 5;
-    public static final int SUNDAY = 6;
 
     TextView tvMonday, tvTuesday, tvWednesday, tvThursday, tvFriday, tvSaturday, tvSunday;
     Intent dayIntent;
@@ -35,13 +29,12 @@ public class MainActivity extends AppCompatActivity {
         tvSunday = findView(R.id.tvSunday);
 
 
-
         dayIntent = new Intent(MainActivity.this, DayActivity.class);
 
         tvMonday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, MONDAY);
+                dayIntent.putExtra(DAY, InputData.MONDAY);
                 startActivity(dayIntent);
             }
         });
@@ -49,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         tvTuesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, TUESDAY);
+                dayIntent.putExtra(DAY, InputData.TUESDAY);
                 startActivity(dayIntent);
             }
         });
@@ -57,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         tvWednesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, WEDNESDAY);
+                dayIntent.putExtra(DAY, InputData.WEDNESDAY);
                 startActivity(dayIntent);
             }
         });
@@ -65,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         tvThursday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, THURSDAY);
+                dayIntent.putExtra(DAY, InputData.THURSDAY);
                 startActivity(dayIntent);
             }
         });
@@ -73,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         tvFriday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, FRIDAY);
+                dayIntent.putExtra(DAY, InputData.FRIDAY);
                 startActivity(dayIntent);
             }
         });
@@ -81,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         tvSaturday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, SATURDAY);
+                dayIntent.putExtra(DAY, InputData.SATURDAY);
                 startActivity(dayIntent);
             }
         });
@@ -89,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         tvSunday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(DAY, SUNDAY);
+                dayIntent.putExtra(DAY, InputData.SUNDAY);
                 startActivity(dayIntent);
             }
         });
