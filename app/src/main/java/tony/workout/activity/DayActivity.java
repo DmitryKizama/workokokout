@@ -12,11 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import tony.workout.R;
-import tony.workout.data.InputData;
 import tony.workout.helper.Constant;
 import tony.workout.helper.UIhelper;
 
-public class DayActivity extends FragmentActivity implements DialogActivity.DialogListener {
+public class DayActivity extends FragmentActivity implements StartDialog.DialogListener {
     static final String TAG = "myLogs";
     static final int PAGE_COUNT = 7;
 
@@ -44,8 +43,7 @@ public class DayActivity extends FragmentActivity implements DialogActivity.Dial
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIhelper.init(DayActivity.this);
-                DialogActivity dialog = new DialogActivity(DayActivity.this, DayActivity.this);
+                StartDialog dialog = new StartDialog(DayActivity.this, DayActivity.this);
                 dialog.show();
             }
         });

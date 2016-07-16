@@ -98,8 +98,8 @@ public class InputData extends Model {
         return data;
     }
 
-    public static InputData findbyId(int id) {
-        return new Select().from(InputData.class).where(ID + "= ?", id).executeSingle();
+    public static InputData findbyId(long id) {
+        return new Select().from(InputData.class).where("Id = ?", id).executeSingle();
     }
 
     public static List<InputData> getAll() {

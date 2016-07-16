@@ -12,7 +12,7 @@ import android.widget.EditText;
 import tony.workout.R;
 import tony.workout.helper.UIhelper;
 
-public class DialogActivity extends Dialog {
+public class StartDialog extends Dialog {
 
 
     public interface DialogListener {
@@ -22,12 +22,8 @@ public class DialogActivity extends Dialog {
     private DialogListener dialogListener;
     Button btnCancel, btnAdd;
     EditText etName, etApproaches, etRepetition;
-    public static String INENT_NAME = "INTENT_INFO_INPUT_NAME";
-    public static String INENT_APPR = "INTENT_INFO_INPUT_APPROACHES";
-    public static String INENT_PEPE = "INTENT_INFO_INPUT_REPETITION";
 
-
-    public DialogActivity(Context context, DialogListener dListener) {
+    public StartDialog(Context context, DialogListener dListener) {
         super(context, R.style.AppTheme);
         this.dialogListener = dListener;
     }
@@ -39,7 +35,7 @@ public class DialogActivity extends Dialog {
 
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.popup);
+        setContentView(R.layout.start_dialog);
 
         ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
 //        parent.getLayoutParams().height = UIhelper.getH() / 2;

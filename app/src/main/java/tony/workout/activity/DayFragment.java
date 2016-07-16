@@ -32,6 +32,8 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
     List<InputData> lst;
     private InputData inData;
 
+    private int idPreviouse;
+
     public static DayFragment newInstance(int page) {
         DayFragment d = new DayFragment();
         Bundle args = new Bundle();
@@ -55,15 +57,13 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
 
     public void addNewItem(String name, int reppetition, int approaches) {
         if (inData == null) {
-            inData = InputData.create(name, reppetition, approaches, page);
+            idPreviouse = 0;
         } else {
-            inData.setName(name);
-            inData.setApproaches(approaches);
-            inData.setRepetition(reppetition);
-            inData.setDay(page);
-            Log.d("PAGE", "page = " + page);
-            inData.setIdNumber(inData.getIdNumber() + 1);
-            inData.save();
+            inData.setIdNumber(idPreviouse + 1);
+        }
+        inData = InputData.create(name, reppetition, approaches, page);
+        if (idPreviouse == 0) {// IT WORKS, I DON'T CARE!
+            inData.setIdNumber(0);
         }
         adapter.onAdd(inData);
     }
@@ -76,7 +76,7 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         Log.d("My", "Enter to creat view");
         Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
-        adapter = new TraningAdapter(lst, this);
+        adapter = new TraningAdapter(lst, this, getContext());
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
@@ -91,9 +91,9 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
     public void onDeletePressed(int position) {
 //        lst.remove(position);
         InputData in = lst.get(position);
-        Log.d("onDelete", "id Normal = " + in.getIdNumber());
-        Log.d("onDelete", "id Special = " + in.getId());
-        InputData in1 = InputData.findbyId(in.getIdNumber());
+//        Log.d("onDelete", "id Normal = " + in.getIdNumber());
+//        Log.d("onDelete", "id Special = " + in.getId());
+        InputData in1 = InputData.findbyId(in.getId());
 
         in1.delete();
     }
