@@ -16,12 +16,12 @@ public class StartDialog extends Dialog {
 
 
     public interface DialogListener {
-        void onAddPressed(String name, int reppetition, int approaches);
+        void onAddPressed(String name, int reppetition, int approaches, int weight);
     }
 
     private DialogListener dialogListener;
     Button btnCancel, btnAdd;
-    EditText etName, etApproaches, etRepetition;
+    EditText etName, etApproaches, etRepetition, etWeight;
 
     public StartDialog(Context context, DialogListener dListener) {
         super(context, R.style.AppTheme);
@@ -45,6 +45,7 @@ public class StartDialog extends Dialog {
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnAdd = (Button) findViewById(R.id.btnAdd);
         etName = (EditText) findViewById(R.id.edtName);
+        etWeight = (EditText) findViewById(R.id.edtWeight);
         etApproaches = (EditText) findViewById(R.id.edtApproaches);
         etRepetition = (EditText) findViewById(R.id.edtRepetition);
 
@@ -62,15 +63,18 @@ public class StartDialog extends Dialog {
                 String name = etName.getText().toString();
                 int appr;
                 int repp;
+                int weight;
                 try {
                     appr = Integer.parseInt(etApproaches.getText().toString());
                     repp = Integer.parseInt(etRepetition.getText().toString());
+                    weight = Integer.parseInt(etWeight.getText().toString());
                 } catch (NumberFormatException e) {
                     appr = 0;
                     repp = 0;
+                    weight = 0;
                 }
 
-                dialogListener.onAddPressed(name, repp, appr);
+                dialogListener.onAddPressed(name, repp, appr, weight);
                 dismiss();
             }
         });

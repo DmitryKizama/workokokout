@@ -14,6 +14,7 @@ public class InputData extends Model {
     public static final String ID = "ID_OF_INPUT";
     public static final String APPROACHES = "APPROACHES_OF_INPUT";
     public static final String REPETITION = "REPETITION_OF_INPUT";
+    public static final String WEIGHT = "WEIGHT_OF_INPUT";
     public static final String DAY = "DAY_OF_INPUT";
     public static int idCounter;
 
@@ -34,11 +35,23 @@ public class InputData extends Model {
     @Column(name = REPETITION)
     private int repetition;
 
+    @Column(name = WEIGHT)
+    private int weight;
+
     @Column(name = ID)
     private int idNumber;
 
     @Column(name = DAY)
     private int day;
+
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
 
     public int getDay() {
@@ -86,9 +99,10 @@ public class InputData extends Model {
         super();
     }
 
-    public static InputData create(String name, int rep, int apr, int day) {
+    public static InputData create(String name, int rep, int apr, int weight, int day) {
         InputData data = new InputData();
         data.name = name;
+        data.weight = weight;
         data.approaches = apr;
         data.repetition = rep;
         data.day = day;

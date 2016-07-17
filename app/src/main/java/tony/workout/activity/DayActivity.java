@@ -71,8 +71,8 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
     }
 
     @Override
-    public void onAddPressed(String name, int reppetition, int approaches) {
-        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).addNewItem(name, reppetition, approaches);
+    public void onAddPressed(String name, int reppetition, int approaches, int weight) {
+        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).addNewItem(name, reppetition, approaches, weight);
         pagerAdapter.notifyDataSetChanged();
         pager.setCurrentItem(pager.getCurrentItem());
     }

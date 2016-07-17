@@ -55,13 +55,13 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         backColor = Color.argb(40, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
-    public void addNewItem(String name, int reppetition, int approaches) {
+    public void addNewItem(String name, int reppetition, int approaches, int weight) {
         if (inData == null) {
             idPreviouse = 0;
         } else {
             inData.setIdNumber(idPreviouse + 1);
         }
-        inData = InputData.create(name, reppetition, approaches, page);
+        inData = InputData.create(name, reppetition, approaches, weight, page);
         if (idPreviouse == 0) {// IT WORKS, I DON'T CARE!
             inData.setIdNumber(0);
         }

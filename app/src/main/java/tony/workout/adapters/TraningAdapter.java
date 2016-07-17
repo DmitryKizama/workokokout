@@ -13,7 +13,7 @@ import tony.workout.activity.UpdateDialog;
 import tony.workout.data.InputData;
 
 
-public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implements UpdateDialog.DialogUpdateListener{
+public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implements UpdateDialog.DialogUpdateListener {
 
     private List<InputData> inputs;
 
@@ -41,7 +41,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
      */
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recyclerview_item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
         return new MyViewHolder(v);
     }
 
@@ -51,7 +51,12 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, final int i) {
         InputData input = inputs.get(i);
+        viewHolder.tvName.setText("Workout name:");
+        viewHolder.tvWeight.setText("Weight:");
+        viewHolder.tvApproaches.setText("Amount:");
+        viewHolder.tvRepetition.setText("Repetition:");
         viewHolder.name.setText(input.getName());
+        viewHolder.weight.setText("" + input.getWeight());
         viewHolder.repetition.setText("" + input.getRepetition());
         viewHolder.approaches.setText("" + input.getApproaches());
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +79,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.approaches.setOnClickListener(new View.OnClickListener() {
+        viewHolder.weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, i);
@@ -82,10 +87,18 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.repetition.setOnClickListener(new View.OnClickListener() {
+        viewHolder.approaches.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, i);
+                dialog.show();
+            }
+        });
+
+        viewHolder.repetition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, i);
                 dialog.show();
             }
         });
@@ -109,6 +122,13 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
     @Override
     public void onOkRepetitionChange(int repetition, int position) {
         inputs.get(position).setRepetition(repetition);
+        notifyItemChanged(position);
+        inputs.get(position).save();
+    }
+
+    @Override
+    public void onOkWeightChange(int weight, int position) {
+        inputs.get(position).setWeight(weight);
         notifyItemChanged(position);
         inputs.get(position).save();
     }

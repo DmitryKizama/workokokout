@@ -23,6 +23,8 @@ public class UpdateDialog extends Dialog {
         void onOkApproachesChange(int approaches, int position);
 
         void onOkRepetitionChange(int repetition, int position);
+
+        void onOkWeightChange(int weight, int position);
     }
 
     private DialogUpdateListener dialogListener;
@@ -58,9 +60,12 @@ public class UpdateDialog extends Dialog {
                 tvMain.setText("Update the name");
                 break;
             case 1:
-                tvMain.setText("Update approaches");
+                tvMain.setText("Update weight");
                 break;
             case 2:
+                tvMain.setText("Update approaches");
+                break;
+            case 3:
                 tvMain.setText("Update repetition");
                 break;
         }
@@ -86,12 +91,19 @@ public class UpdateDialog extends Dialog {
                         break;
                     case 1:
                         try {
-                            dialogListener.onOkApproachesChange(Integer.parseInt(etSom.getText().toString()), position);
+                            dialogListener.onOkWeightChange(Integer.parseInt(etSom.getText().toString()), position);
                         } catch (NumberFormatException e) {
                             Toast.makeText(getContext(), "ONLY NUMBER!", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 2:
+                        try {
+                            dialogListener.onOkApproachesChange(Integer.parseInt(etSom.getText().toString()), position);
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(getContext(), "ONLY NUMBER!", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    case 3:
                         try {
                             dialogListener.onOkRepetitionChange(Integer.parseInt(etSom.getText().toString()), position);
                         } catch (NumberFormatException e) {
