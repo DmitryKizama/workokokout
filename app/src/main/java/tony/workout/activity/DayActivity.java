@@ -1,21 +1,18 @@
 package tony.workout.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.melnykov.fab.FloatingActionButton;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.helper.Constant;
 
@@ -25,7 +22,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
-    private FloatingActionButton btnAdd;
+    private FancyButton btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +35,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
         }
 
         pager = (ViewPager) findViewById(R.id.pager);
-        btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
-
+        btnAdd = (FancyButton) findViewById(R.id.btnAdd);
 
 
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
@@ -109,7 +105,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
 
         @Override
         public DayFragment getItem(int position) {
-            DayFragment day = DayFragment.newInstance(position, btnAdd);
+            DayFragment day = DayFragment.newInstance(position);
             return day;
         }
 

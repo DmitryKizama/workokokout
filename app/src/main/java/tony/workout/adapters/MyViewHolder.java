@@ -3,17 +3,29 @@ package tony.workout.adapters;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.daimajia.swipe.SwipeLayout;
 
 import tony.workout.R;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
     public TextView name, repetition, weight, approaches, tvName, tvWeight, tvApproaches, tvRepetition;
     public Button btnDelete;
+    public SwipeLayout swipeLayout;
+    public LinearLayout bottom_wrapper, linearLayoutNAME, linearLayoutREPP, linearLayoutAPPR, linearLayoutWEIGHT;
+
 
     public MyViewHolder(View itemView) {
         super(itemView);
+        bottom_wrapper = (LinearLayout) itemView.findViewById(R.id.bottom_wrapper);
+        linearLayoutNAME = (LinearLayout) itemView.findViewById(R.id.linearNAME);
+        linearLayoutREPP = (LinearLayout) itemView.findViewById(R.id.linearREPET);
+        linearLayoutAPPR = (LinearLayout) itemView.findViewById(R.id.linearAPPR);
+        linearLayoutWEIGHT = (LinearLayout) itemView.findViewById(R.id.linearWEIGHT);
+
+        swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipelayout);
         tvName = (TextView) itemView.findViewById(R.id.tvName);
         tvWeight = (TextView) itemView.findViewById(R.id.tvWeight);
         tvApproaches = (TextView) itemView.findViewById(R.id.tvApproaches);

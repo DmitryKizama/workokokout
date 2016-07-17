@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.helper.UIhelper;
 
@@ -20,7 +21,7 @@ public class StartDialog extends Dialog {
     }
 
     private DialogListener dialogListener;
-    Button btnCancel, btnAdd;
+    FancyButton btnCancel, btnAdd;
     EditText etName, etApproaches, etRepetition, etWeight;
 
     public StartDialog(Context context, DialogListener dListener) {
@@ -42,8 +43,8 @@ public class StartDialog extends Dialog {
         parent.getLayoutParams().width = UIhelper.getW() - UIhelper.getPixel(30);
 
 
-        btnCancel = (Button) findViewById(R.id.btnCancel);
-        btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnCancel = (FancyButton) findViewById(R.id.btnCancel);
+        btnAdd = (FancyButton) findViewById(R.id.btnAdd);
         etName = (EditText) findViewById(R.id.edtName);
         etWeight = (EditText) findViewById(R.id.edtWeight);
         etApproaches = (EditText) findViewById(R.id.edtApproaches);

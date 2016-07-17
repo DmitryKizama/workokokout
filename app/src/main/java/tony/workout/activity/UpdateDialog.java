@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.helper.UIhelper;
 
@@ -29,7 +30,7 @@ public class UpdateDialog extends Dialog {
 
     private DialogUpdateListener dialogListener;
     private int changegElement, position;
-    Button btnCancel, btnOk;
+    FancyButton btnCancel, btnOk;
     EditText etSom;
     TextView tvMain;
 
@@ -70,8 +71,8 @@ public class UpdateDialog extends Dialog {
                 break;
         }
 
-        btnCancel = (Button) findViewById(R.id.btnCancelInUpdateDialog);
-        btnOk = (Button) findViewById(R.id.btnOkInUpdateDialog);
+        btnCancel = (FancyButton) findViewById(R.id.btnCancelInUpdateDialog);
+        btnOk = (FancyButton) findViewById(R.id.btnOkInUpdateDialog);
         etSom = (EditText) findViewById(R.id.edtSomethingInUpdateDialog);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {

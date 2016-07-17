@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.daimajia.swipe.SwipeLayout;
+
 import java.util.List;
 
 import tony.workout.R;
@@ -71,7 +73,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.name.setOnClickListener(new View.OnClickListener() {
+        viewHolder.linearLayoutNAME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, i);
@@ -79,7 +81,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.weight.setOnClickListener(new View.OnClickListener() {
+        viewHolder.linearLayoutWEIGHT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, i);
@@ -87,7 +89,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.approaches.setOnClickListener(new View.OnClickListener() {
+        viewHolder.linearLayoutAPPR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, i);
@@ -95,7 +97,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.repetition.setOnClickListener(new View.OnClickListener() {
+        viewHolder.linearLayoutREPP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, i);
@@ -103,6 +105,8 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
+
+        viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
     }
 
     @Override
