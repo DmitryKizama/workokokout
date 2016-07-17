@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melnykov.fab.FloatingActionButton;
+
 import java.util.List;
 
 import tony.workout.R;
@@ -29,11 +31,13 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
     List<InputData> lst;
     private InputData inData;
     private int idPreviouse;
+    private static FloatingActionButton btn;
 
-    public static DayFragment newInstance(int page) {
+    public static DayFragment newInstance(int page, FloatingActionButton btnAdd) {
         DayFragment d = new DayFragment();
         Bundle args = new Bundle();
         args.putInt(ARGUMENT_PAGE_NUMBER, page);
+        btn = btnAdd;
         d.setArguments(args);
         return d;
     }
@@ -69,6 +73,7 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         Log.d("My", "Enter to creat view");
         Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
+        btn.attachToRecyclerView(rv);
         adapter = new TraningAdapter(lst, this, getContext());
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);

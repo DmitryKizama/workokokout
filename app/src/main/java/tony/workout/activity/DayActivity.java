@@ -9,10 +9,11 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.melnykov.fab.FloatingActionButton;
 
-import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.helper.Constant;
 
@@ -22,7 +23,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
-    private FancyButton btnAdd;
+    private FloatingActionButton btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
         }
 
         pager = (ViewPager) findViewById(R.id.pager);
-        btnAdd = (FancyButton) findViewById(R.id.btnAdd);
+        btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 
 
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
@@ -52,6 +53,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnAdd.startAnimation(AnimationUtils.loadAnimation(DayActivity.this, R.anim.rotate_and_scale));
                 StartDialog dialog = new StartDialog(DayActivity.this, DayActivity.this);
                 dialog.show();
             }
@@ -64,6 +66,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
                 Log.d(TAG, "onPageSelected, position = " + position);
 //                pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
 //                pager.setAdapter(pagerAdapter);
+                btnAdd.show();
             }
 
             @Override
@@ -105,7 +108,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
 
         @Override
         public DayFragment getItem(int position) {
-            DayFragment day = DayFragment.newInstance(position);
+            DayFragment day = DayFragment.newInstance(position, btnAdd);
             return day;
         }
 

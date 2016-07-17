@@ -56,7 +56,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.tvName.setText("Workout name:");
         viewHolder.tvWeight.setText("Weight:");
         viewHolder.tvApproaches.setText("Amount:");
-        viewHolder.tvRepetition.setText("Repetition:");
+        viewHolder.tvRepetition.setText("Repeat:");
         viewHolder.name.setText(input.getName());
         viewHolder.weight.setText("" + input.getWeight());
         viewHolder.repetition.setText("" + input.getRepetition());

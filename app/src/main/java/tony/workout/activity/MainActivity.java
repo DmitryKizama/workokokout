@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         tvMonday = findView(R.id.tvMonday);
         tvTuesday = findView(R.id.tvTuesday);
         tvWednesday = findView(R.id.tvWednesday);
