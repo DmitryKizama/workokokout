@@ -1,19 +1,23 @@
 package tony.workout.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.astuetz.PagerSlidingTabStrip;
+import com.melnykov.fab.FloatingActionButton;
+
 import tony.workout.R;
 import tony.workout.helper.Constant;
-import tony.workout.helper.UIhelper;
 
 public class DayActivity extends FragmentActivity implements StartDialog.DialogListener {
     static final String TAG = "myLogs";
@@ -21,7 +25,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
-    private Button btnAdd;
+    private FloatingActionButton btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +38,20 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
         }
 
         pager = (ViewPager) findViewById(R.id.pager);
-        btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
+
+
 
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(msgDay);
+
+//        btnAdd.attachToRecyclerView((RecyclerView) findViewById(R.id.rv));
+
+
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabs.setViewPager(pager);
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,41 +99,17 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
             super(fm);
         }
 
+        private final String[] TITLES = {Constant.MONDAY, Constant.TUESDAY, Constant.WEDNESDAY, Constant.THURSDAY, Constant.FRIDAY, Constant.SATURDAY,
+                Constant.SUNDAY};
+
         @Override
         public CharSequence getPageTitle(int position) {
-            String msg;
-            switch (position) {
-                case 0:
-                    msg = Constant.MONDAY;
-                    break;
-                case 1:
-                    msg = Constant.TUESDAY;
-                    break;
-                case 2:
-                    msg = Constant.WEDNESDAY;
-                    break;
-                case 3:
-                    msg = Constant.THURSDAY;
-                    break;
-                case 4:
-                    msg = Constant.FRIDAY;
-                    break;
-                case 5:
-                    msg = Constant.SATURDAY;
-                    break;
-                case 6:
-                    msg = Constant.SUNDAY;
-                    break;
-                default:
-                    msg = "ERROR, PLEASE TURN TO GOD FOR HELP";
-                    break;
-            }
-            return msg;
+            return TITLES[position];
         }
 
         @Override
         public DayFragment getItem(int position) {
-            DayFragment day = DayFragment.newInstance(position);
+            DayFragment day = DayFragment.newInstance(position, btnAdd);
             return day;
         }
 

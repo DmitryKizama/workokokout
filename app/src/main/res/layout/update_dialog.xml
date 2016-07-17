@@ -3,7 +3,7 @@
     android:id="@+id/parentInUpdate"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_blue_light"
+    android:background="@color/colorForDialogs"
     android:layout_gravity="center"
     android:orientation="vertical">
 

@@ -1,6 +1,5 @@
 package tony.workout.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,9 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.List;
-import java.util.Random;
 
 import tony.workout.R;
 import tony.workout.adapters.TraningAdapter;
@@ -24,20 +25,20 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
 //    static final String ARGUMENT_WORKOUT_REPETITIONS = "arg_repetition";
 //    static final String ARGUMENT_COUNT_INPUT = "arg_count_input";
 
-    int backColor;
     int page;
     int countInputs;
     RecyclerView rv;
     TraningAdapter adapter;
     List<InputData> lst;
     private InputData inData;
-
+    private static FloatingActionButton btn;
     private int idPreviouse;
 
-    public static DayFragment newInstance(int page) {
+    public static DayFragment newInstance(int page, FloatingActionButton btnAdd) {
         DayFragment d = new DayFragment();
         Bundle args = new Bundle();
         args.putInt(ARGUMENT_PAGE_NUMBER, page);
+        btn = btnAdd;
         d.setArguments(args);
         return d;
     }
@@ -48,11 +49,8 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
 
         page = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
         lst = InputData.getAllByDay(page);
-
         Log.d("onCreateFragment", "get all by day" + lst.size());
 
-        Random rnd = new Random();
-        backColor = Color.argb(40, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
     public void addNewItem(String name, int reppetition, int approaches, int weight) {
@@ -76,6 +74,7 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         Log.d("My", "Enter to creat view");
         Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
+        btn.attachToRecyclerView(rv);
         adapter = new TraningAdapter(lst, this, getContext());
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);

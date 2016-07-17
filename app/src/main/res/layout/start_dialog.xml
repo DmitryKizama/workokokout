@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_blue_light"
     android:layout_gravity="center"
+    android:background="@color/colorForDialogs"
     android:orientation="vertical">
 
     <TextView
@@ -23,10 +24,16 @@
         android:text="Name of training:"
         android:textSize="20sp" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/edtName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:met_baseColor="@android:color/background_dark"
+        app:met_errorColor="@android:color/holo_red_dark"
+        app:met_maxCharacters="10"
+        app:met_primaryColor="@android:color/background_dark" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,26 +75,42 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/edtRepetition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:digits="1234567890"
-                android:inputType="number" />
+                android:inputType="number"
+                app:met_baseColor="@android:color/background_dark"
+                app:met_errorColor="@android:color/holo_red_dark"
+                app:met_maxCharacters="4"
+                app:met_primaryColor="@android:color/background_dark" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/edtApproaches"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:digits="1234567890"
-                android:inputType="number" />
+                android:inputType="number"
+                app:met_baseColor="@android:color/background_dark"
+                app:met_errorColor="@android:color/holo_red_dark"
+                app:met_maxCharacters="4"
+                app:met_primaryColor="@android:color/background_dark" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/edtWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:digits="1234567890"
-                android:inputType="number" />
+                android:inputType="number"
+                app:met_baseColor="@android:color/background_dark"
+                app:met_errorColor="@android:color/holo_red_dark"
+                app:met_maxCharacters="4"
+                app:met_primaryColor="@android:color/background_dark" />
+
 
         </LinearLayout>
 
@@ -103,7 +126,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add" />
+            android:text="Apply" />
 
         <Button
             android:id="@+id/btnCancel"

@@ -66,11 +66,17 @@ public class StartDialog extends Dialog {
                 int weight;
                 try {
                     appr = Integer.parseInt(etApproaches.getText().toString());
-                    repp = Integer.parseInt(etRepetition.getText().toString());
-                    weight = Integer.parseInt(etWeight.getText().toString());
                 } catch (NumberFormatException e) {
                     appr = 0;
+                }
+                try {
+                    repp = Integer.parseInt(etRepetition.getText().toString());
+                } catch (NumberFormatException e) {
                     repp = 0;
+                }
+                try {
+                    weight = Integer.parseInt(etWeight.getText().toString());
+                } catch (NumberFormatException e) {
                     weight = 0;
                 }
 

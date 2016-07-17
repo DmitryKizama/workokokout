@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorForActivity">
+
+
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="?attr/colorPrimary"
+        app:pstsDividerColor="@color/colorForDialogs"
+        app:pstsIndicatorColor="#FF33B5E6"
+        app:pstsTabPaddingLeftRight="35dip"
+        app:pstsTabTextColor="@android:color/white"
+        app:pstsUnderlineColor="@color/colorItem"
+        fab:fab_colorNormal="@color/primary"
+        fab:fab_colorPressed="@color/primary_pressed" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v4.view.PagerTitleStrip
-            android:id="@+id/pagerTitleStrip"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="top">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs">
 
 
-        </android.support.v4.view.PagerTitleStrip>
     </android.support.v4.view.ViewPager>
 
-    <Button
+    <com.melnykov.fab.FloatingActionButton
         android:id="@+id/btnAdd"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
         android:layout_centerHorizontal="true"
-        android:text="Add" />
+        android:layout_margin="16dp"
+        fab:fab_colorNormal="@color/primary"
+        fab:fab_colorPressed="@color/primary_pressed"
+        fab:fab_colorRipple="@color/ripple" />
+
 </RelativeLayout>
