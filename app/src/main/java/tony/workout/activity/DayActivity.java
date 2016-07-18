@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.john.waveview.WaveView;
 import com.melnykov.fab.FloatingActionButton;
 
 import tony.workout.R;
@@ -24,6 +25,7 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
     private FloatingActionButton btnAdd;
+    private WaveView waveView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,14 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
         setContentView(R.layout.day_activity);
 
         int msgDay = 0;
+        int progress = 50;
         if (getIntent() != null) {
             msgDay = getIntent().getIntExtra(MainActivity.DAY, 0);
+            progress = getIntent().getIntExtra(MainActivity.PROGRESS, 0);
         }
 
+        waveView = (WaveView) findViewById(R.id.wave_view_day_activity);
+        waveView.setProgress(progress);
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 

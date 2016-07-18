@@ -1,87 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:background="@color/colorForActivity"
-    android:layout_height="match_parent">
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:wave="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.john.waveview.WaveView
+        android:id="@+id/wave_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorForActivity"
+        wave:above_wave_color="@android:color/white"
+        wave:blow_wave_color="@android:color/white"
+        wave:progress="50"
+        wave:wave_height="middle"
+        wave:wave_hz="normal"
+        wave:wave_length="middle" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:weightSum="7">
+        android:weightSum="7"
+        android:id="@+id/linearLayout">
 
-        <TextView
-            android:id="@+id/tvMonday"
-            android:layout_width="wrap_content"
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnMonday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Monday"
-            android:textSize="40dp" />
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Monday"
+            fancy:fb_textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvTuesday"
-            android:layout_width="wrap_content"
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnTuesday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Tuesday"
-            android:textSize="40dp" />
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Tuesday"
+            fancy:fb_textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvWednesday"
-            android:layout_width="wrap_content"
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnWednesday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Wednesday"
-            android:textSize="40dp" />
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Wednesday"
+            fancy:fb_textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvThursday"
-            android:layout_width="wrap_content"
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnThursday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Thursday"
-            android:textSize="40dp" />
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Thursday"
+            fancy:fb_textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvFriday"
-            android:layout_width="wrap_content"
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnFriday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Friday"
-            android:textSize="40dp" />
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Friday"
+            fancy:fb_textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvSaturday"
-            android:layout_width="wrap_content"
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnSaturday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Saturday"
-            android:textSize="40dp" />
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Saturday"
+            fancy:fb_textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvSunday"
-            android:layout_width="wrap_content"
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnSunday"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Sunday"
-            android:textSize="40dp" />
-
+            fancy:fb_borderColor="@android:color/white"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@android:color/transparent"
+            fancy:fb_focusColor="@color/colorPrimaryDark"
+            fancy:fb_fontIconSize="25sp"
+            fancy:fb_text="Sunday"
+            fancy:fb_textColor="@android:color/white" />
 
     </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:progress="50"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/linearLayout"
+        android:layout_toStartOf="@+id/linearLayout" />
 
 </RelativeLayout>

@@ -29,12 +29,9 @@
             </intent-filter>
         </activity>
 
-
-        <activity android:name=".activity.DayActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
-
-
-        </activity>
+        <activity
+            android:name=".activity.DayActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"></activity>
 
     </application>
 
