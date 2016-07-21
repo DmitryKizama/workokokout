@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
 
-import com.john.waveview.WaveView;
-
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.data.InputData;
@@ -21,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     FancyButton tvMonday, tvTuesday, tvWednesday, tvThursday, tvFriday, tvSaturday, tvSunday;
     Intent dayIntent;
     SeekBar seekBar;
-    WaveView waveView;
-    private int progres = 50;
 
 
     @Override
@@ -39,14 +35,11 @@ public class MainActivity extends AppCompatActivity {
         tvSunday = findView(R.id.btnSunday);
 
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
-        waveView = (WaveView) findViewById(R.id.wave_view);
 
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                waveView.setProgress(progress);
-                progres = progress;
             }
 
             @Override
@@ -66,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         tvMonday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.MONDAY);
                 startActivity(dayIntent);
             }
@@ -75,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         tvTuesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.TUESDAY);
                 startActivity(dayIntent);
             }
@@ -84,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         tvWednesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.WEDNESDAY);
                 startActivity(dayIntent);
             }
@@ -93,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         tvThursday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.THURSDAY);
                 startActivity(dayIntent);
             }
@@ -102,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         tvFriday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.FRIDAY);
                 startActivity(dayIntent);
             }
@@ -111,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
         tvSaturday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.SATURDAY);
                 startActivity(dayIntent);
             }
@@ -120,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         tvSunday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dayIntent.putExtra(MainActivity.PROGRESS, progres);
                 dayIntent.putExtra(DAY, InputData.SUNDAY);
                 startActivity(dayIntent);
             }

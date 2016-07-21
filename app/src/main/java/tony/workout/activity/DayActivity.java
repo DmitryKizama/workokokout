@@ -1,10 +1,10 @@
 package tony.workout.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
@@ -12,20 +12,20 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.john.waveview.WaveView;
 import com.melnykov.fab.FloatingActionButton;
+
+import java.util.Calendar;
 
 import tony.workout.R;
 import tony.workout.helper.Constant;
 
-public class DayActivity extends FragmentActivity implements StartDialog.DialogListener {
+public class DayActivity extends AppCompatActivity implements StartDialog.DialogListener {
     static final String TAG = "myLogs";
     static final int PAGE_COUNT = 7;
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
     private FloatingActionButton btnAdd;
-    private WaveView waveView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,13 @@ public class DayActivity extends FragmentActivity implements StartDialog.DialogL
         setContentView(R.layout.day_activity);
 
         int msgDay = 0;
-        int progress = 50;
         if (getIntent() != null) {
             msgDay = getIntent().getIntExtra(MainActivity.DAY, 0);
-            progress = getIntent().getIntExtra(MainActivity.PROGRESS, 0);
         }
 
-        waveView = (WaveView) findViewById(R.id.wave_view_day_activity);
-        waveView.setProgress(progress);
+        Calendar c = Calendar.getInstance();
+        msgDay = c.get(Calendar.DAY_OF_WEEK) - 2;
+
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 
