@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
 
-import com.john.waveview.WaveView;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     FancyButton tvMonday, tvTuesday, tvWednesday, tvThursday, tvFriday, tvSaturday, tvSunday;
     Intent dayIntent;
     SeekBar seekBar;
-    WaveView waveView;
     private int progres = 50;
 
 
@@ -39,13 +37,11 @@ public class MainActivity extends AppCompatActivity {
         tvSunday = findView(R.id.btnSunday);
 
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
-        waveView = (WaveView) findViewById(R.id.wave_view);
 
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                waveView.setProgress(progress);
                 progres = progress;
             }
 
@@ -67,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.MONDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.MON.getIndex());
                 startActivity(dayIntent);
             }
         });
@@ -76,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.TUESDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.TUE.getIndex());
                 startActivity(dayIntent);
             }
         });
@@ -85,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.WEDNESDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.WED.getIndex());
                 startActivity(dayIntent);
             }
         });
@@ -94,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.THURSDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.THU.getIndex());
                 startActivity(dayIntent);
             }
         });
@@ -103,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.FRIDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.FRI.getIndex());
                 startActivity(dayIntent);
             }
         });
@@ -112,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.SATURDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.SUT.getIndex());
                 startActivity(dayIntent);
             }
         });
@@ -121,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dayIntent.putExtra(MainActivity.PROGRESS, progres);
-                dayIntent.putExtra(DAY, InputData.SUNDAY);
+                dayIntent.putExtra(DAY, InputData.InputDay.SUN.getIndex());
                 startActivity(dayIntent);
             }
         });

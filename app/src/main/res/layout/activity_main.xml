@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
-    xmlns:wave="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
+    android:background="@color/colorForActivity"
     android:layout_height="fill_parent">
 
-    <com.john.waveview.WaveView
-        android:id="@+id/wave_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorForActivity"
-        wave:above_wave_color="@android:color/white"
-        wave:blow_wave_color="@android:color/white"
-        wave:progress="50"
-        wave:wave_height="middle"
-        wave:wave_hz="normal"
-        wave:wave_length="middle" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:weightSum="7"
-        android:id="@+id/linearLayout">
+        android:weightSum="7">
 
 
         <mehdi.sakout.fancybuttons.FancyButton
@@ -127,13 +116,13 @@
         android:id="@+id/seek_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:progress="50"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
         android:layout_toLeftOf="@+id/linearLayout"
-        android:layout_toStartOf="@+id/linearLayout" />
+        android:layout_toStartOf="@+id/linearLayout"
+        android:progress="50" />
 
 </RelativeLayout>

@@ -4,6 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorForDialogs">#09b9b4</color>
-    <color name="colorForActivity">#01b3a2</color>
+    <color name="colorForActivity">#25a6d6</color>
+
     <color name="colorItem">#69dad8</color>
+    <color name="background_color">#FFFFFF</color>
+
+    <color name="edit_text_color">@android:color/background_dark</color>
+    <color name="edit_text_error_color">@android:color/holo_red_dark</color>
 </resources>

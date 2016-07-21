@@ -1,77 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parentInUpdate"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:background="@android:color/white">
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="2dp"
-        android:background="@color/colorForDialogs"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Update the ...:"
-            android:textColor="@android:color/white"
-            android:textSize="30sp" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtSomethingInUpdateDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:met_baseColor="@android:color/background_dark"
-            app:met_errorColor="@android:color/holo_red_dark"
-            app:met_maxCharacters="10"
-            app:met_primaryColor="@android:color/background_dark" />
+        android:background="@color/background_color"
+        android:layout_margin="@dimen/dialog_margin"
+        android:gravity="center">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="2">
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/layout_in_dialog_margin"
+            android:background="@color/colorForDialogs"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:id="@+id/btnOkInUpdateDialog"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                fancy:fb_borderColor="@android:color/white"
-                fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/colorForDialogs"
-                fancy:fb_focusColor="@color/colorPrimaryDark"
-                fancy:fb_fontIconSize="25sp"
-                fancy:fb_text="Change"
-                fancy:fb_textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/tvUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/background_color"
+                android:textSize="30sp" />
 
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:id="@+id/btnCancelInUpdateDialog"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                fancy:fb_borderColor="@android:color/white"
-                fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/colorForDialogs"
-                fancy:fb_focusColor="@color/colorPrimaryDark"
-                fancy:fb_fontIconSize="25sp"
-                fancy:fb_text="Cancel"
-                fancy:fb_textColor="@android:color/white" />
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edtSomethingInUpdateDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:met_baseColor="@color/edit_text_color"
+                app:met_errorColor="@color/edit_text_error_color"
+                app:met_maxCharacters="10"
+                app:met_primaryColor="@color/edit_text_color" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btnOkInUpdateDialog"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    fancy:fb_borderColor="@color/background_color"
+                    fancy:fb_borderWidth="1dp"
+                    fancy:fb_defaultColor="@color/colorForDialogs"
+                    fancy:fb_focusColor="@color/colorPrimaryDark"
+                    fancy:fb_fontIconSize="@dimen/text_size_btn"
+                    fancy:fb_text="@string/btn_apply"
+                    fancy:fb_textColor="@color/background_color" />
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btnCancelInUpdateDialog"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    fancy:fb_borderColor="@color/background_color"
+                    fancy:fb_borderWidth="1dp"
+                    fancy:fb_defaultColor="@color/colorForDialogs"
+                    fancy:fb_focusColor="@color/colorPrimaryDark"
+                    fancy:fb_fontIconSize="@dimen/text_size_btn"
+                    fancy:fb_text="@string/btn_cancel"
+                    fancy:fb_textColor="@color/background_color" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>

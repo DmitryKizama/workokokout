@@ -28,9 +28,7 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
     int countInputs;
     RecyclerView rv;
     TraningAdapter adapter;
-    List<InputData> lst;
-    private InputData inData;
-    private int idPreviouse;
+
     private static FloatingActionButton btn;
 
     public static DayFragment newInstance(int page, FloatingActionButton btnAdd) {
@@ -47,21 +45,10 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         super.onCreate(savedInstanceState);
 
         page = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
-        lst = InputData.getAllByDay(page);
-        Log.d("onCreateFragment", "get all by day" + lst.size());
-
     }
 
     public void addNewItem(String name, int reppetition, int approaches, int weight) {
-        if (inData == null) {
-            idPreviouse = 0;
-        } else {
-            inData.setIdNumber(idPreviouse + 1);
-        }
-        inData = InputData.create(name, reppetition, approaches, weight, page);
-        if (idPreviouse == 0) {// IT WORKS, I DON'T CARE!
-            inData.setIdNumber(0);
-        }
+        InputData inData = InputData.create(name, reppetition, approaches, weight, page);
         adapter.onAdd(inData);
     }
 
@@ -74,6 +61,10 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
         btn.attachToRecyclerView(rv);
+
+        List<InputData> lst = InputData.getAllByDay(page);
+        Log.d("onCreateFragment", "get all by day" + lst.size());
+
         adapter = new TraningAdapter(lst, this, getContext());
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
@@ -86,13 +77,5 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
 
 
     @Override
-    public void onDeletePressed(int position) {
-//        lst.remove(position);
-        InputData in = lst.get(position);
-//        Log.d("onDelete", "id Normal = " + in.getIdNumber());
-//        Log.d("onDelete", "id Special = " + in.getId());
-        InputData in1 = InputData.findbyId(in.getId());
-
-        in1.delete();
-    }
+    public void onDeletePressed(InputData in) {}
 }

@@ -23,6 +23,8 @@ public class App extends Application {
 //        Configuration.Builder config = new Configuration.Builder(this);
 //        config.addModelClasses(InputData.class);
         ActiveAndroid.initialize(this);
+
+
     }
 
     public static synchronized Context getAppContext() {

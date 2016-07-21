@@ -4,188 +4,197 @@
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:background="@android:color/white">
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
 
     <LinearLayout
-
+        android:id="@+id/parentSon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="1dp"
-        android:background="@color/colorForDialogs"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Enter the following:"
-            android:textColor="@android:color/white"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Name of training:"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:met_baseColor="@android:color/background_dark"
-            app:met_errorColor="@android:color/holo_red_dark"
-            app:met_maxCharacters="10"
-            app:met_primaryColor="@android:color/background_dark" />
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dialog_margin"
+        android:background="@color/background_color">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:orientation="vertical"
-            android:weightSum="3">
+            android:layout_margin="1dp"
+            android:background="@color/colorForDialogs"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/start_dialog_header"
+                android:textColor="@color/background_color"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/start_dialog_name"
+                android:textColor="@color/background_color"
+                android:textSize="20sp" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:met_baseColor="@color/edit_text_color"
+                app:met_errorColor="@color/edit_text_error_color"
+                app:met_maxCharacters="10"
+                app:met_primaryColor="@color/edit_text_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:orientation="vertical"
                 android:weightSum="3">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Repetition:"
-                    android:textColor="@android:color/white"
-                    android:textSize="30sp" />
-
-
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/edtRepetition"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:digits="1234567890"
-                    android:inputType="number"
-                    app:met_baseColor="@android:color/background_dark"
-                    app:met_errorColor="@android:color/holo_red_dark"
-                    app:met_maxCharacters="4"
-                    app:met_primaryColor="@android:color/background_dark" />
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/start_dialog_repetition"
+                        android:textColor="@color/background_color"
+                        android:textSize="30sp" />
+
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/edtRepetition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:digits="1234567890"
+                        android:inputType="number"
+                        app:met_baseColor="@color/edit_text_color"
+                        app:met_errorColor="@color/edit_text_error_color"
+                        app:met_maxCharacters="4"
+                        app:met_primaryColor="@color/edit_text_color" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/start_dialog_approaches"
+                        android:textColor="@color/background_color"
+                        android:textSize="30sp" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/edtApproaches"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:digits="1234567890"
+                        android:inputType="number"
+                        app:met_baseColor="@color/edit_text_color"
+                        app:met_errorColor="@color/edit_text_error_color"
+                        app:met_maxCharacters="4"
+                        app:met_primaryColor="@color/edit_text_color" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/start_dialog_weight"
+                        android:textColor="@color/background_color"
+                        android:textSize="30sp" />
+
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/edtWeight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:digits="1234567890"
+                        android:inputType="number"
+                        app:met_baseColor="@color/edit_text_color"
+                        app:met_errorColor="@color/edit_text_error_color"
+                        app:met_maxCharacters="4"
+                        app:met_primaryColor="@color/edit_text_color" />
+
+                </LinearLayout>
 
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content"
+                android:weightSum="2">
 
-                <TextView
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btnAdd"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Approaches:"
-                    android:textColor="@android:color/white"
-                    android:textSize="30sp" />
-
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/edtApproaches"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:digits="1234567890"
-                    android:inputType="number"
-                    app:met_baseColor="@android:color/background_dark"
-                    app:met_errorColor="@android:color/holo_red_dark"
-                    app:met_maxCharacters="4"
-                    app:met_primaryColor="@android:color/background_dark" />
+                    fancy:fb_borderColor="@color/background_color"
+                    fancy:fb_borderWidth="1dp"
+                    fancy:fb_defaultColor="@color/colorForDialogs"
+                    fancy:fb_focusColor="@color/colorPrimaryDark"
+                    fancy:fb_fontIconSize="25sp"
+                    fancy:fb_text="@string/btn_apply"
+                    fancy:fb_textColor="@color/background_color" />
 
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btnCancel"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Weight:"
-                    android:textColor="@android:color/white"
-                    android:textSize="30sp" />
-
-
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/edtWeight"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:digits="1234567890"
-                    android:inputType="number"
-                    app:met_baseColor="@android:color/background_dark"
-                    app:met_errorColor="@android:color/holo_red_dark"
-                    app:met_maxCharacters="4"
-                    app:met_primaryColor="@android:color/background_dark" />
+                    fancy:fb_borderColor="@color/background_color"
+                    fancy:fb_borderWidth="1dp"
+                    fancy:fb_defaultColor="@color/colorForDialogs"
+                    fancy:fb_focusColor="@color/colorPrimaryDark"
+                    fancy:fb_fontIconSize="25sp"
+                    fancy:fb_text="@string/btn_cancel"
+                    fancy:fb_textColor="@color/background_color" />
+
 
             </LinearLayout>
 
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:id="@+id/btnAdd"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                fancy:fb_borderColor="@android:color/white"
-                fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/colorForDialogs"
-                fancy:fb_focusColor="@color/colorPrimaryDark"
-                fancy:fb_fontIconSize="25sp"
-                fancy:fb_text="Apply"
-                fancy:fb_textColor="@android:color/white" />
-
-            <mehdi.sakout.fancybuttons.FancyButton
-                android:id="@+id/btnCancel"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                fancy:fb_borderColor="@android:color/white"
-                fancy:fb_borderWidth="1dp"
-                fancy:fb_defaultColor="@color/colorForDialogs"
-                fancy:fb_focusColor="@color/colorPrimaryDark"
-                fancy:fb_fontIconSize="25sp"
-                fancy:fb_text="Cancel"
-                fancy:fb_textColor="@android:color/white" />
-
-
-        </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

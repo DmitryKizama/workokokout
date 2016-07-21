@@ -2,6 +2,7 @@ package tony.workout.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
     private List<InputData> inputs;
 
     public interface AdapterListener {
-        void onDeletePressed(int position);
+        void onDeletePressed(InputData data);
     }
 
     private AdapterListener adapterListener;
@@ -51,24 +52,28 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
      * Заполнение виджетов View данными из элемента списка с номером i
      */
     @Override
-    public void onBindViewHolder(MyViewHolder viewHolder, final int i) {
-        InputData input = inputs.get(i);
-        viewHolder.tvName.setText("Workout name:");
-        viewHolder.tvWeight.setText("Weight:");
-        viewHolder.tvApproaches.setText("Amount:");
-        viewHolder.tvRepetition.setText("Repeat:");
+    public void onBindViewHolder(final MyViewHolder viewHolder, final int i) {
+        final InputData input = inputs.get(i);
+        viewHolder.tvName.setText(context.getResources().getString(R.string.item_name));
+        viewHolder.tvWeight.setText(context.getResources().getString(R.string.item_weight));
+        viewHolder.tvApproaches.setText(context.getResources().getString(R.string.item_approaches));
+        viewHolder.tvRepetition.setText(context.getResources().getString(R.string.item_repetition));
         viewHolder.name.setText(input.getName());
         viewHolder.weight.setText("" + input.getWeight());
         viewHolder.repetition.setText("" + input.getRepetition());
         viewHolder.approaches.setText("" + input.getApproaches());
+
+        Log.d("TYU", "Create " + input.getName() + " I : " + i);
+
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pos = viewHolder.getAdapterPosition();
 
-                adapterListener.onDeletePressed(i);
-                inputs.remove(i);
-                notifyItemRemoved(i);
-                notifyDataSetChanged();
+                adapterListener.onDeletePressed(inputs.get(pos));
+                inputs.get(pos).delete();
+                inputs.remove(pos);
+                notifyItemRemoved(pos);
 
             }
         });
@@ -76,7 +81,8 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutNAME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, i);
+                int pos = viewHolder.getAdapterPosition();
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, pos);
                 dialog.show();
             }
         });
@@ -84,7 +90,8 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutWEIGHT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, i);
+                int pos = viewHolder.getAdapterPosition();
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, pos);
                 dialog.show();
             }
         });
@@ -92,7 +99,8 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutAPPR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, i);
+                int pos = viewHolder.getAdapterPosition();
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, pos);
                 dialog.show();
             }
         });
@@ -100,7 +108,8 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutREPP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, i);
+                int pos = viewHolder.getAdapterPosition();
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, pos);
                 dialog.show();
             }
         });

@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">WorkOut</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_item_home">Home</string>
+    <string name="drawer_item_free_play">Free Play</string>
+    <string name="drawer_item_custom">Custom</string>
+    <string name="drawer_item_settings">Settings</string>
+    <string name="drawer_item_help">Help</string>
+    <string name="drawer_item_open_source">Open Source</string>
+    <string name="drawer_item_contact">Contact</string>
+
+    <string name="start_dialog_header">Enter the following:</string>
+    <string name="start_dialog_name">Name of training:</string>
+    <string name="start_dialog_repetition">Repetition:</string>
+    <string name="start_dialog_approaches">Approaches:</string>
+    <string name="start_dialog_weight">Weight:</string>
+
+    <string name="btn_apply">Apply</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="item_name">Workout name:</string>
+    <string name="item_weight">Weight:</string>
+    <string name="item_approaches">Amount:</string>
+    <string name="item_repetition">Repeat:</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

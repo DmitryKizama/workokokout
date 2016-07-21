@@ -8,30 +8,37 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MyAppTheme">
 
         <meta-data
             android:name="AA_DB_NAME"
             android:value="DataBaseWorkout.db" />
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="1" />
+            android:value="4" />
 
         <meta-data
             android:name="AA_MODELS"
             android:value="tony.workout.data.InputData" />
 
         <activity android:name=".activity.MainActivity">
+
+        </activity>
+
+        <activity
+            android:name=".activity.DayActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
-        <activity
-            android:name=".activity.DayActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"></activity>
 
     </application>
 
