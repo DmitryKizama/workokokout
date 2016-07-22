@@ -50,19 +50,13 @@ public class UpdateDialog extends Dialog {
 
 
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.update_dialog);
 
         ViewGroup parent = (ViewGroup) findViewById(R.id.parentInUpdate);
 //        parent.getLayoutParams().height = UIhelper.getH() / 2;
         parent.getLayoutParams().width = UIhelper.getW() - UIhelper.getPixel(30);
-        parent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
 
         tvMain = (TextView) findViewById(R.id.tvUpdate);
 

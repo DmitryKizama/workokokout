@@ -36,7 +36,6 @@ public class StartDialog extends Dialog {
 
 
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.start_dialog);
 
@@ -51,7 +50,6 @@ public class StartDialog extends Dialog {
         etWeight = (EditText) findViewById(R.id.edtWeight);
         etApproaches = (EditText) findViewById(R.id.edtApproaches);
         etRepetition = (EditText) findViewById(R.id.edtRepetition);
-
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
