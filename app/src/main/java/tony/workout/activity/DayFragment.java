@@ -87,12 +87,5 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
 
     @Override
     public void onDeletePressed(int position) {
-//        lst.remove(position);
-        InputData in = lst.get(position);
-//        Log.d("onDelete", "id Normal = " + in.getIdNumber());
-//        Log.d("onDelete", "id Special = " + in.getId());
-        InputData in1 = InputData.findbyId(in.getId());
-
-        in1.delete();
     }
 }

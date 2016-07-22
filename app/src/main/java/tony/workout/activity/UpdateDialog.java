@@ -30,15 +30,18 @@ public class UpdateDialog extends Dialog {
 
     private DialogUpdateListener dialogListener;
     private int changegElement, position;
+    private String msg;
     FancyButton btnCancel, btnOk;
     EditText etSom;
     TextView tvMain;
 
-    public UpdateDialog(Context context, DialogUpdateListener dListener, int changedEl, int pos) {
+
+    public UpdateDialog(Context context, DialogUpdateListener dListener, int changedEl, int pos, String massage) {
         super(context, R.style.AppTheme);
         this.dialogListener = dListener;
         this.changegElement = changedEl;
         this.position = pos;
+        this.msg = massage;
     }
 
     @Override
@@ -81,6 +84,7 @@ public class UpdateDialog extends Dialog {
         btnCancel = (FancyButton) findViewById(R.id.btnCancelInUpdateDialog);
         btnOk = (FancyButton) findViewById(R.id.btnOkInUpdateDialog);
         etSom = (EditText) findViewById(R.id.edtSomethingInUpdateDialog);
+        etSom.setText(msg);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override

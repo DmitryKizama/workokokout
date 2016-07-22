@@ -51,7 +51,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
      * Заполнение виджетов View данными из элемента списка с номером i
      */
     @Override
-    public void onBindViewHolder(MyViewHolder viewHolder, final int i) {
+    public void onBindViewHolder(final MyViewHolder viewHolder, final int i) {
         InputData input = inputs.get(i);
         viewHolder.tvName.setText("Workout name:");
         viewHolder.tvWeight.setText("Weight:");
@@ -64,19 +64,18 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                adapterListener.onDeletePressed(i);
-                inputs.remove(i);
-                notifyItemRemoved(i);
-                notifyDataSetChanged();
-
+                int pos = viewHolder.getAdapterPosition();
+//                adapterListener.onDeletePressed(inputs.get(pos).getId());
+                inputs.get(pos).delete();
+                inputs.remove(pos);
+                notifyItemRemoved(pos);
             }
         });
 
         viewHolder.linearLayoutNAME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, i);
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, viewHolder.getAdapterPosition(), inputs.get(viewHolder.getAdapterPosition()).getName());
                 dialog.show();
             }
         });
@@ -84,7 +83,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutWEIGHT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, i);
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getWeight());
                 dialog.show();
             }
         });
@@ -92,7 +91,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutAPPR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, i);
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getApproaches());
                 dialog.show();
             }
         });
@@ -100,7 +99,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.linearLayoutREPP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, i);
+                UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getRepetition());
                 dialog.show();
             }
         });
