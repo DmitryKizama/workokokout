@@ -54,6 +54,12 @@ public class UpdateDialog extends Dialog {
         ViewGroup parent = (ViewGroup) findViewById(R.id.parentInUpdate);
 //        parent.getLayoutParams().height = UIhelper.getH() / 2;
         parent.getLayoutParams().width = UIhelper.getW() - UIhelper.getPixel(30);
+        parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         tvMain = (TextView) findViewById(R.id.tvUpdate);
 
