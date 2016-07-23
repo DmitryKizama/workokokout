@@ -58,7 +58,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnAdd.startAnimation(AnimationUtils.loadAnimation(DayActivity.this, R.anim.rotate_and_scale));
+//                btnAdd.startAnimation(AnimationUtils.loadAnimation(DayActivity.this, R.anim.rotate_and_scale));
                 StartDialog dialog = new StartDialog(DayActivity.this, DayActivity.this);
                 dialog.show();
             }

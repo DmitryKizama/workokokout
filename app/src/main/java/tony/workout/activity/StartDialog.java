@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 
 import mehdi.sakout.fancybuttons.FancyButton;
@@ -36,6 +35,7 @@ public class StartDialog extends Dialog {
 
 
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.start_dialog);
 
@@ -43,6 +43,7 @@ public class StartDialog extends Dialog {
 //        parent.getLayoutParams().height = UIhelper.getH() / 2;
         parent.getLayoutParams().width = UIhelper.getW() - UIhelper.getPixel(30);
 
+        UIhelper.hideKeyboard(getOwnerActivity());
 
         btnCancel = (FancyButton) findViewById(R.id.btnCancel);
         btnAdd = (FancyButton) findViewById(R.id.btnAdd);

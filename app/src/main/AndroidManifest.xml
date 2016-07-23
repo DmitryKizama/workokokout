@@ -21,12 +21,9 @@
             android:name="AA_MODELS"
             android:value="tony.workout.data.InputData" />
 
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.MainActivity" />
 
-        <activity
-            android:name=".activity.DayActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
-
+        <activity android:name=".activity.DayActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
