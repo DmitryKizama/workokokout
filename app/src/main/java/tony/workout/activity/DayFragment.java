@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.melnykov.fab.FloatingActionButton;
-
 import java.util.List;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.adapters.TraningAdapter;
 import tony.workout.data.InputData;
+import tony.workout.helper.AnimationAddButton;
 
 public class DayFragment extends Fragment implements TraningAdapter.AdapterListener {
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
@@ -31,13 +31,13 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
     List<InputData> lst;
     private InputData inData;
     private int idPreviouse;
-    private static FloatingActionButton btn;
+    private static FancyButton btnAdd;
 
-    public static DayFragment newInstance(int page, FloatingActionButton btnAdd) {
+    public static DayFragment newInstance(int page, FancyButton btn) {
         DayFragment d = new DayFragment();
         Bundle args = new Bundle();
         args.putInt(ARGUMENT_PAGE_NUMBER, page);
-        btn = btnAdd;
+        btnAdd = btn;
         d.setArguments(args);
         return d;
     }
@@ -73,17 +73,42 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         Log.d("My", "Enter to creat view");
         Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
-        btn.attachToRecyclerView(rv);
         adapter = new TraningAdapter(lst, this, getContext());
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(mLayoutManager);
 
+        rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (AnimationAddButton.btnAddShow) {
+                    if (dy > 0) {
+                        AnimationAddButton.hideButton(btnAdd);
+                        Log.d("addOnScrollListener", "hide");
+                    }
+                } else {
+                    if (dy < 0) {
+                        AnimationAddButton.showButton(btnAdd);
+                        Log.d("addOnScrollListener", "show");
+                    }
+                }
+            }
+
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+//                if (newState == 0) {
+//                    AnimationAddButton.hideButton(btnAdd);
+//                }
+
+            }
+        });
 
         return view;
     }
-
 
     @Override
     public void onDeletePressed(int position) {

@@ -1,22 +1,26 @@
 package tony.workout.activity;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.melnykov.fab.FloatingActionButton;
 
 import java.util.Calendar;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
+import tony.workout.helper.AnimationAddButton;
 import tony.workout.helper.Constant;
 
 public class DayActivity extends AppCompatActivity implements StartDialog.DialogListener {
@@ -25,26 +29,50 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
-    private FloatingActionButton btnAdd;
+    private FancyButton btnAdd;
+    private NavigationSettingsFragment mNavigationSettingsFragment;
+    private DrawerLayout mDrawerLayout;
+
+//    private DayFragment dayFragment;
+    private ViewGroup ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.day_activity);
 
-        int msgDay = 0;
-        if (getIntent() != null) {
-            msgDay = getIntent().getIntExtra(MainActivity.DAY, 0);
-        }
+        mNavigationSettingsFragment = (NavigationSettingsFragment)
+                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
+        mNavigationSettingsFragment.setUp(
+                R.id.navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout));
+
+//        dayFragment = (DayFragment) getFragmentManager().findFragmentById(R.id.rv);
+
+        ll = (ViewGroup) findViewById(R.id.layout_in_day_activity);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.placeholder, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                float moveFactor = (getResources().getDimension(R.dimen.navdrawer_width) * slideOffset);
+                ll.setTranslationX(moveFactor);
+            }
+        };
+
+        mDrawerLayout.setScrimColor(Color.TRANSPARENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mDrawerLayout.setElevation(0);
+        }
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        int msgDay = 0;
         Calendar c = Calendar.getInstance();
         msgDay = c.get(Calendar.DAY_OF_WEEK) - 2;
 
         pager = (ViewPager) findViewById(R.id.pager);
-        btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
+        btnAdd = (FancyButton) findViewById(R.id.btnAdd);
 
-
-        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), btnAdd);
         pager.setAdapter(pagerAdapter);
         pager.setCurrentItem(msgDay);
 
@@ -71,12 +99,15 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
                 Log.d(TAG, "onPageSelected, position = " + position);
 //                pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
 //                pager.setAdapter(pagerAdapter);
-                btnAdd.show();
+                if (!AnimationAddButton.btnAddShow) {
+                    AnimationAddButton.showButton(btnAdd);
+                }
             }
 
             @Override
             public void onPageScrolled(int position, float positionOffset,
                                        int positionOffsetPixels) {
+
 //                Log.d(TAG, "onPageScrolled, position = " + position);
             }
 
@@ -98,9 +129,11 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         SparseArray<DayFragment> registeredFragments = new SparseArray<DayFragment>();
+        FancyButton btn;
 
-        public MyFragmentPagerAdapter(FragmentManager fm) {
+        public MyFragmentPagerAdapter(FragmentManager fm, FancyButton btnAddInDayActivity) {
             super(fm);
+            this.btn = btnAddInDayActivity;
         }
 
         private final String[] TITLES = {Constant.MONDAY, Constant.TUESDAY, Constant.WEDNESDAY, Constant.THURSDAY, Constant.FRIDAY, Constant.SATURDAY,
@@ -113,7 +146,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 
         @Override
         public DayFragment getItem(int position) {
-            DayFragment day = DayFragment.newInstance(position, btnAdd);
+            DayFragment day = DayFragment.newInstance(position, btn);
             return day;
         }
 

@@ -165,10 +165,10 @@
                 fancy:fb_borderColor="@android:color/white"
                 fancy:fb_borderWidth="1dp"
                 fancy:fb_defaultColor="@color/colorForDialogs"
-                fancy:fb_focusColor="@color/colorPrimaryDark"
                 fancy:fb_fontIconSize="25sp"
                 fancy:fb_text="Apply"
-                fancy:fb_textColor="@android:color/white" />
+                fancy:fb_textColor="@android:color/white"
+                app:fb_focusColor="@color/primary_pressed" />
 
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/btnCancel"
@@ -179,10 +179,10 @@
                 fancy:fb_borderColor="@android:color/white"
                 fancy:fb_borderWidth="1dp"
                 fancy:fb_defaultColor="@color/colorForDialogs"
-                fancy:fb_focusColor="@color/colorPrimaryDark"
                 fancy:fb_fontIconSize="25sp"
                 fancy:fb_text="Cancel"
-                fancy:fb_textColor="@android:color/white" />
+                fancy:fb_textColor="@android:color/white"
+                app:fb_focusColor="@color/primary_pressed" />
 
 
         </LinearLayout>

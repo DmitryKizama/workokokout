@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipelayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="@android:dimen/notification_large_icon_height">
     <!-- Bottom View Start-->
     <LinearLayout
         android:id="@+id/bottom_wrapper"
@@ -58,14 +58,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@color/white"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:weightSum="5">
             <!--What you want to show in SurfaceView-->
 
 
@@ -74,7 +77,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:textColor="@color/color_of_words"
                 android:textSize="@dimen/item_text_size"
@@ -88,7 +91,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/color_of_words"
+                android:textColor="@color/orange"
                 android:textSize="@dimen/item_text_size"
                 tools:text="weight" />
 
@@ -100,7 +103,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/color_of_words"
+                android:textColor="@color/orange"
                 android:textSize="@dimen/item_text_size"
                 tools:text="rep" />
 
@@ -112,13 +115,19 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="@color/color_of_words"
+                android:textColor="@color/orange"
                 android:textSize="@dimen/item_text_size"
                 tools:text="app" />
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE" />
+
     </LinearLayout>
+
     <!-- Surface View End -->
 
 </com.daimajia.swipe.SwipeLayout>
