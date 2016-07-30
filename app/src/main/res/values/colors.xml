@@ -6,4 +6,8 @@
     <color name="colorForDialogs">#09b9b4</color>
     <color name="colorForActivity">#01b3a2</color>
     <color name="colorItem">#69dad8</color>
+
+    <color name="white">@android:color/white</color>
+    <color name="orange">#E65100</color>
+    <color name="color_of_words">@android:color/black</color>
 </resources>

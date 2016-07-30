@@ -53,10 +53,10 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
     @Override
     public void onBindViewHolder(final MyViewHolder viewHolder, final int i) {
         InputData input = inputs.get(i);
-        viewHolder.tvName.setText("Workout name:");
-        viewHolder.tvWeight.setText("Weight:");
-        viewHolder.tvApproaches.setText("Amount:");
-        viewHolder.tvRepetition.setText("Repeat:");
+//        viewHolder.tvName.setText("Workout name:");
+//        viewHolder.tvWeight.setText("Weight:");
+//        viewHolder.tvApproaches.setText("Amount:");
+//        viewHolder.tvRepetition.setText("Repeat:");
         viewHolder.name.setText(input.getName());
         viewHolder.weight.setText("" + input.getWeight());
         viewHolder.repetition.setText("" + input.getRepetition());
@@ -72,7 +72,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.linearLayoutNAME.setOnClickListener(new View.OnClickListener() {
+        viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, viewHolder.getAdapterPosition(), inputs.get(viewHolder.getAdapterPosition()).getName());
@@ -80,7 +80,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.linearLayoutWEIGHT.setOnClickListener(new View.OnClickListener() {
+        viewHolder.weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getWeight());
@@ -88,7 +88,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.linearLayoutAPPR.setOnClickListener(new View.OnClickListener() {
+        viewHolder.approaches.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getApproaches());
@@ -96,7 +96,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-        viewHolder.linearLayoutREPP.setOnClickListener(new View.OnClickListener() {
+        viewHolder.repetition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getRepetition());

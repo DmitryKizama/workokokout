@@ -2,43 +2,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipelayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_height="wrap_content">
     <!-- Bottom View Start-->
     <LinearLayout
         android:id="@+id/bottom_wrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF5534"
-        android:weightSum="10">
+        android:layout_height="match_parent"
+        android:background="@color/orange"
+        android:weightSum="2">
         <!--What you want to show-->
-        <ImageView
-            android:id="@+id/trash"
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/trash" />
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="35dp"
+                android:layout_height="55dp"
+                android:src="@drawable/trash" />
+
+        </LinearLayout>
+
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="5"
-            android:text="Delete Item?"
-            android:textColor="#fff"
-            android:textSize="17sp" />
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white" />
 
-        <Button
-            android:id="@+id/btnDelete"
+        <TextView
+            android:id="@+id/btnCancelInItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:layout_weight="4"
-            android:background="@android:color/white"
-            android:text="Yes, delete"
-            android:textColor="#FF5534" />
+            android:layout_weight="1"
+            android:background="@color/orange"
+            android:gravity="center"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/item_text_size" />
 
     </LinearLayout>
 
@@ -47,131 +55,70 @@
 
     <!-- Surface View Start -->
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorItem"
-        android:orientation="horizontal"
-        android:weightSum="10">
-        <!--What you want to show in SurfaceView-->
-        <LinearLayout
-            android:id="@+id/linearNAME"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="vertical"
-            android:weightSum="3">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:textColor="@android:color/white"
-                tools:text="Workout name:" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="4">
+            <!--What you want to show in SurfaceView-->
+
 
             <TextView
                 android:id="@+id/recyclerViewItemName"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_of_words"
+                android:textSize="@dimen/item_text_size"
                 tools:text="name" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearWEIGHT"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:weightSum="3">
-
-            <TextView
-                android:id="@+id/tvWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                tools:text="Weight:" />
 
             <TextView
                 android:id="@+id/recyclerViewItemWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_of_words"
+                android:textSize="@dimen/item_text_size"
                 tools:text="weight" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearREPET"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:weightSum="3">
-
-
-            <TextView
-                android:id="@+id/tvRepetition"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                tools:text="Repeat:" />
 
             <TextView
                 android:id="@+id/recyclerViewItemRepetition"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_of_words"
+                android:textSize="@dimen/item_text_size"
                 tools:text="rep" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearAPPR"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:weightSum="3">
-
-            <TextView
-                android:id="@+id/tvApproaches"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                tools:text="Amount:" />
 
             <TextView
                 android:id="@+id/recyclerViewItemApproaches"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="2"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/color_of_words"
+                android:textSize="@dimen/item_text_size"
                 tools:text="app" />
 
-
         </LinearLayout>
-    </LinearLayout><!-- Surface View End -->
+
+    </LinearLayout>
+    <!-- Surface View End -->
 
 </com.daimajia.swipe.SwipeLayout>
