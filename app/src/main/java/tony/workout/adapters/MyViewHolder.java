@@ -12,15 +12,16 @@ import tony.workout.R;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
     public TextView name, repetition, weight, approaches, btnCancelInItem;
-//    public TextView tvName, tvWeight, tvApproaches, tvRepetition;
+    //    public TextView tvName, tvWeight, tvApproaches, tvRepetition;
     public ImageView btnDelete;
     public SwipeLayout swipeLayout;
-    public LinearLayout bottom_wrapper;
+    public LinearLayout bottom_wrapper, topLayout;
 //    public LinearLayout linearLayoutNAME, linearLayoutREPP, linearLayoutAPPR, linearLayoutWEIGHT;
 
 
     public MyViewHolder(View itemView) {
         super(itemView);
+        topLayout = (LinearLayout) itemView.findViewById(R.id.top_layout_in_item);
         bottom_wrapper = (LinearLayout) itemView.findViewById(R.id.bottom_wrapper);
 //        linearLayoutNAME = (LinearLayout) itemView.findViewById(R.id.linearNAME);
 //        linearLayoutREPP = (LinearLayout) itemView.findViewById(R.id.linearREPET);

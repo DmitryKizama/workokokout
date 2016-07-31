@@ -80,17 +80,21 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         rv.setLayoutManager(mLayoutManager);
 
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            private AnimationAddButton an = AnimationAddButton.getInstance(btnAdd);
+
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                if (AnimationAddButton.btnAddShow) {
+
+                if (an.isShown()) {
                     if (dy > 0) {
-                        AnimationAddButton.hideButton(btnAdd);
+                        an.hideButton();
                         Log.d("addOnScrollListener", "hide");
                     }
                 } else {
                     if (dy < 0) {
-                        AnimationAddButton.showButton(btnAdd);
+                        an.showButton();
                         Log.d("addOnScrollListener", "show");
                     }
                 }

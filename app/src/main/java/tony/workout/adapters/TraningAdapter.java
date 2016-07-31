@@ -18,6 +18,7 @@ import tony.workout.data.InputData;
 public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implements UpdateDialog.DialogUpdateListener {
 
     private List<InputData> inputs;
+    private MyViewHolder vHolder;
 
     public interface AdapterListener {
         void onDeletePressed(int position);
@@ -52,7 +53,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
      */
     @Override
     public void onBindViewHolder(final MyViewHolder viewHolder, final int i) {
-        InputData input = inputs.get(i);
+        InputData input = inputs.get(viewHolder.getAdapterPosition());
 //        viewHolder.tvName.setText("Workout name:");
 //        viewHolder.tvWeight.setText("Weight:");
 //        viewHolder.tvApproaches.setText("Amount:");
@@ -104,8 +105,56 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
-
+        viewHolder.btnCancelInItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.swipeLayout.close();
+            }
+        });
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+
+        viewHolder.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, viewHolder.bottom_wrapper);
+
+        viewHolder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
+            @Override
+            public void onClose(SwipeLayout layout) {
+                //when the SurfaceView totally cover the BottomView.
+            }
+
+            @Override
+            public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
+                //you are swiping.
+            }
+
+            @Override
+            public void onStartOpen(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onOpen(SwipeLayout layout) {
+                //when the BottomView totally show.
+                if (vHolder != null) {
+                    if (vHolder.swipeLayout.isShown()) {
+                        if (viewHolder.swipeLayout.isShown()) {
+                            vHolder.swipeLayout.close();
+                        }
+                    }
+                }
+                vHolder = viewHolder;
+            }
+
+            @Override
+            public void onStartClose(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
+                //when user's hand released.
+            }
+        });
+
     }
 
     @Override

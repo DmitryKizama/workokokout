@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
 
@@ -33,7 +35,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private NavigationSettingsFragment mNavigationSettingsFragment;
     private DrawerLayout mDrawerLayout;
 
-//    private DayFragment dayFragment;
+    //    private DayFragment dayFragment;
     private ViewGroup ll;
 
     @Override
@@ -65,9 +67,43 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        final ImageView ivSettings = (ImageView) findViewById(R.id.ivSettings);
+        ivSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                ivSettings.setAnimation();
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
         int msgDay = 0;
         Calendar c = Calendar.getInstance();
-        msgDay = c.get(Calendar.DAY_OF_WEEK) - 2;
+        switch (c.get(Calendar.DAY_OF_WEEK)) {
+            case Calendar.MONDAY:
+                msgDay = 0;
+                break;
+            case Calendar.TUESDAY:
+                msgDay = 1;
+                break;
+            case Calendar.WEDNESDAY:
+                msgDay = 2;
+                break;
+            case Calendar.THURSDAY:
+                msgDay = 3;
+                break;
+            case Calendar.FRIDAY:
+                msgDay = 4;
+                break;
+            case Calendar.SATURDAY:
+                msgDay = 5;
+                break;
+            case Calendar.SUNDAY:
+                msgDay = 6;
+                break;
+            default:
+                msgDay = 0;
+                break;
+        }
 
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (FancyButton) findViewById(R.id.btnAdd);
@@ -94,13 +130,15 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
+            private AnimationAddButton an = AnimationAddButton.getInstance(btnAdd);
+
             @Override
             public void onPageSelected(int position) {
                 Log.d(TAG, "onPageSelected, position = " + position);
 //                pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
 //                pager.setAdapter(pagerAdapter);
-                if (!AnimationAddButton.btnAddShow) {
-                    AnimationAddButton.showButton(btnAdd);
+                if (!an.isShown()) {
+                    an.showButton();
                 }
             }
 
