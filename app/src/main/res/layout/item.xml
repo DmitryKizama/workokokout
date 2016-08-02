@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@color/background_color"
             android:orientation="horizontal"
             android:weightSum="5">
             <!--What you want to show in SurfaceView-->
@@ -125,7 +125,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#EEEEEE" />
+            android:background="@color/color_tv_under_item" />
 
     </LinearLayout>
 

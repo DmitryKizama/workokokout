@@ -113,8 +113,6 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         });
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
 
-        viewHolder.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, viewHolder.bottom_wrapper);
-
         viewHolder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
             @Override
             public void onClose(SwipeLayout layout) {

@@ -14,6 +14,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -34,7 +36,9 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private FancyButton btnAdd;
     private NavigationSettingsFragment mNavigationSettingsFragment;
     private DrawerLayout mDrawerLayout;
+    private ImageView ivSettings;
 
+    private Animation anim;
     //    private DayFragment dayFragment;
     private ViewGroup ll;
 
@@ -56,6 +60,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.placeholder, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             public void onDrawerSlide(View drawerView, float slideOffset) {
+//                ivSettings.startAnimation(anim);
                 float moveFactor = (getResources().getDimension(R.dimen.navdrawer_width) * slideOffset);
                 ll.setTranslationX(moveFactor);
             }
@@ -67,11 +72,12 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        final ImageView ivSettings = (ImageView) findViewById(R.id.ivSettings);
+        ivSettings = (ImageView) findViewById(R.id.ivSettings);
+        anim = AnimationUtils.loadAnimation(DayActivity.this, R.anim.rotate_hor_menu);
         ivSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ivSettings.setAnimation();
+                ivSettings.startAnimation(anim);
                 mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });

@@ -47,7 +47,7 @@ public class NavigationSettingsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        parentView = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        parentView = inflater.inflate(R.layout.menu, container, false);
         return parentView;
     }
 
