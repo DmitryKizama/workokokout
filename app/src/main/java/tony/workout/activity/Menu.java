@@ -7,15 +7,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import tony.workout.R;
 
 
-public class NavigationSettingsFragment extends Fragment {
+public class Menu extends Fragment {
 
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
     private View parentView;
+
+    private TextView tvSettings, tvProfile, tvHowToUse;
 
     private OnSettingsListener listener;
 
@@ -23,7 +26,7 @@ public class NavigationSettingsFragment extends Fragment {
 
     }
 
-    public NavigationSettingsFragment() {
+    public Menu() {
 
     }
 
@@ -48,6 +51,7 @@ public class NavigationSettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.menu, container, false);
+        tvHowToUse = (TextView)
         return parentView;
     }
 
