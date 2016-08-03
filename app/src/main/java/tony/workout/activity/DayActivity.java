@@ -34,7 +34,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
     private FancyButton btnAdd;
-    private NavigationSettingsFragment mNavigationSettingsFragment;
+    private Menu mMenu;
     private DrawerLayout mDrawerLayout;
     private ImageView ivSettings;
 
@@ -47,12 +47,10 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         super.onCreate(savedInstanceState);
         setContentView(R.layout.day_activity);
 
-        mNavigationSettingsFragment = (NavigationSettingsFragment)
+        mMenu = (Menu)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
-        mNavigationSettingsFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+        mMenu.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
 //        dayFragment = (DayFragment) getFragmentManager().findFragmentById(R.id.rv);
 

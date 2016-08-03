@@ -7,27 +7,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import tony.workout.R;
 
 
-public class Menu extends Fragment {
+public class Menu extends Fragment implements SettingsDialog.MenuListener{
 
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
     private View parentView;
 
-    private TextView tvSettings, tvProfile, tvHowToUse;
+    private LinearLayout tvSettings, tvProfile, tvHowToUse;
 
-    private OnSettingsListener listener;
-
-    public interface OnSettingsListener {
+    @Override
+    public void onApplyClicked(int position) {
 
     }
 
     public Menu() {
-
     }
 
     @Override
@@ -51,12 +49,36 @@ public class Menu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.menu, container, false);
-        tvHowToUse = (TextView)
+        tvHowToUse = (LinearLayout) parentView.findViewById(R.id.tvInfoInMenu);
+        tvSettings = (LinearLayout) parentView.findViewById(R.id.tvSettingsInMenu);
+        tvProfile = (LinearLayout) parentView.findViewById(R.id.tvProfileInMenu);
+
+        tvHowToUse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        tvSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SettingsDialog settings = new SettingsDialog(getContext(), Menu.this);
+                settings.show();
+            }
+        });
+
+        tvProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return parentView;
     }
 
     private void init() {
-
     }
 
     public boolean isDrawerOpen() {

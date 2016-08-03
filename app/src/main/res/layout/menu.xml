@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="@android:dimen/notification_large_icon_height"
             android:gravity="center"
-            android:text="you are all pidorz"
+            android:text="all of you are pidorz"
             android:textSize="20sp" />
 
         <View
@@ -50,10 +50,14 @@
                     android:layout_weight="2"
                     android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_panda" />
+
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Profile"
                         android:textSize="@dimen/text_size_in_menu" />
 
@@ -72,10 +76,14 @@
                     android:layout_weight="2"
                     android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_panda_question" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="How to use"
                         android:textSize="@dimen/text_size_in_menu" />
 
@@ -94,10 +102,14 @@
                     android:layout_weight="2"
                     android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_panda_settings" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Settings"
                         android:textSize="@dimen/text_size_in_menu" />
 
