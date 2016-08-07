@@ -131,6 +131,8 @@
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp"
                 android:layout_below="@+id/tabs"
                 android:background="@color/background_color">
 
