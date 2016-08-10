@@ -22,7 +22,8 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     private View mFragmentContainerView;
     private View parentView;
 
-    private LinearLayout tvSettings, tvProfile, tvHowToUse, tvTrainings;
+    private LinearLayout tvSettings, tvHowToUse, tvTrainings;
+//    private LinearLayout tvProfile;
 
     @Override
     public void onApplyClicked(int position) {
@@ -61,7 +62,7 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
         parentView = inflater.inflate(R.layout.menu, container, false);
         tvHowToUse = (LinearLayout) parentView.findViewById(R.id.tvInfoInMenu);
         tvSettings = (LinearLayout) parentView.findViewById(R.id.tvSettingsInMenu);
-        tvProfile = (LinearLayout) parentView.findViewById(R.id.tvProfileInMenu);
+//        tvProfile = (LinearLayout) parentView.findViewById(R.id.tvProfileInMenu);
         tvTrainings = (LinearLayout) parentView.findViewById(R.id.tvTrainingInMenu);
 
         tvHowToUse.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +86,12 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
             }
         });
 
-        tvProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        tvProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
         tvTrainings.setOnClickListener(new View.OnClickListener() {
             @Override

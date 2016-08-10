@@ -8,11 +8,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@android:dimen/notification_large_icon_height"
+            android:layout_height="128dp"
             android:background="@color/primary"
-            android:src="@mipmap/ic_bull" />
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_launcher" />
+
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -21,10 +31,10 @@
             android:text="all of you are pidorz"
             android:textSize="20sp" />
 
-        <View
+        <!-- <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@drawable/drop_shadow" />
+            android:background="@drawable/drop_shadow" /> -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +59,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_panda_settings" />
+                        android:src="@mipmap/ic_panda_trainings" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -66,7 +76,7 @@
                     android:layout_marginBottom="@dimen/activity_horizontal_margin"
                     android:background="@color/color_tv_under_item" />
 
-                <LinearLayout
+                <!-- <LinearLayout
                     android:id="@+id/tvProfileInMenu"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -90,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:background="@color/color_tv_under_item" />
+                    android:background="@color/color_tv_under_item" /> -->
 
                 <LinearLayout
                     android:id="@+id/tvInfoInMenu"
@@ -102,7 +112,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_panda_question" />
+                        android:src="@mipmap/ic_panda_htu" />
 
                     <TextView
                         android:layout_width="match_parent"

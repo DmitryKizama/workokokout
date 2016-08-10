@@ -8,7 +8,7 @@
     <color name="colorItem">#69dad8</color>
 
     <color name="background_color">@android:color/white</color>
-    <color name="orange">#FF8A65</color>
+    <color name="orange">#fe741d</color>
     <color name="color_of_words">@android:color/black</color>
 
     <color name="color_tv_under_item">#EEEEEE</color>

@@ -20,13 +20,15 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
 
     private List<InputData> inputs;
     public MyViewHolder vHolder;
+    private boolean isShown = false;
+
+    private AdapterListener adapterListener;
+    private Context context;
 
     public interface AdapterListener {
         void onDeletePressed(int position);
     }
 
-    private AdapterListener adapterListener;
-    private Context context;
 
     public TraningAdapter(List<InputData> records, AdapterListener listener, Context con) {
         this.inputs = records;
@@ -80,7 +82,15 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, viewHolder.getAdapterPosition(), inputs.get(viewHolder.getAdapterPosition()).getName());
-                dialog.show();
+                if (vHolder != null) {
+                    if (isShown) {
+                        vHolder.swipeLayout.close();
+                    } else {
+                        dialog.show();
+                    }
+                } else {
+                    dialog.show();
+                }
             }
         });
 
@@ -88,7 +98,17 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getWeight());
-                dialog.show();
+                if (vHolder != null) {
+                    if (isShown) {
+                        vHolder.swipeLayout.close();
+                    } else {
+                        dialog.show();
+                    }
+                } else {
+                    dialog.show();
+                }
+
+
             }
         });
 
@@ -96,7 +116,18 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getApproaches());
-                dialog.show();
+
+                if (vHolder != null) {
+                    if (isShown) {
+                        vHolder.swipeLayout.close();
+                    } else {
+                        dialog.show();
+                    }
+                } else {
+                    dialog.show();
+                }
+
+
             }
         });
 
@@ -104,7 +135,17 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getRepetition());
-                dialog.show();
+                if (vHolder != null) {
+                    if (isShown) {
+                        vHolder.swipeLayout.close();
+                    } else {
+                        dialog.show();
+                    }
+                } else {
+                    dialog.show();
+                }
+
+
             }
         });
 
@@ -154,6 +195,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClose(SwipeLayout layout) {
                 //when the SurfaceView totally cover the BottomView.
+                isShown = false;
             }
 
             @Override
@@ -163,7 +205,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
 
             @Override
             public void onStartOpen(SwipeLayout layout) {
-
+                isShown = true;
             }
 
             @Override

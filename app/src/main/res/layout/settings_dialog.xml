@@ -15,7 +15,7 @@
         android:layout_marginBottom="@dimen/fab_size_mini"
         android:gravity="center"
         android:text="Settings"
-        android:textSize="@dimen/text_size_in_menu" />
+        android:textSize="46sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

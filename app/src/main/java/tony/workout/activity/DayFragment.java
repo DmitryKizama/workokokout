@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -70,14 +71,26 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.day_fragment, container, false);
 
-        Log.d("My", "Enter to creat view");
-        Log.d("My", "count = " + countInputs);
         rv = (RecyclerView) view.findViewById(R.id.rv);
         adapter = new TraningAdapter(lst, this, getContext());
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(mLayoutManager);
+
+        rv.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d("Hellow", "ONCLICK");
+                if (adapter.vHolder != null) {
+                    if (adapter.vHolder.swipeLayout.isShown()) {
+                        adapter.vHolder.swipeLayout.close();
+                    }
+                }
+                return false;
+            }
+        });
+
 
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
