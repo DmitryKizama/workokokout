@@ -2,6 +2,7 @@ package tony.workout.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import tony.workout.data.InputData;
 public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implements UpdateDialog.DialogUpdateListener {
 
     private List<InputData> inputs;
-    private MyViewHolder vHolder;
+    public MyViewHolder vHolder;
 
     public interface AdapterListener {
         void onDeletePressed(int position);
@@ -62,6 +63,8 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.weight.setText("" + input.getWeight());
         viewHolder.repetition.setText("" + input.getRepetition());
         viewHolder.approaches.setText("" + input.getApproaches());
+
+
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,13 +108,47 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
+
+        viewHolder.name.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("LONGCLICK", "in long click name");
+                viewHolder.swipeLayout.open();
+                return false;
+            }
+        });
+
+        viewHolder.weight.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                viewHolder.swipeLayout.open();
+                return false;
+            }
+        });
+
+        viewHolder.approaches.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                viewHolder.swipeLayout.open();
+                return false;
+            }
+        });
+
+        viewHolder.repetition.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                viewHolder.swipeLayout.open();
+                return false;
+            }
+        });
+
         viewHolder.btnCancelInItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewHolder.swipeLayout.close();
             }
         });
-        viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+        viewHolder.swipeLayout.setSwipeEnabled(false);
 
         viewHolder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
             @Override
@@ -132,10 +169,14 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onOpen(SwipeLayout layout) {
                 //when the BottomView totally show.
+
                 if (vHolder != null) {
+
                     if (vHolder.swipeLayout.isShown()) {
-                        if (viewHolder.swipeLayout.isShown()) {
-                            vHolder.swipeLayout.close();
+                        if (viewHolder != vHolder) {
+                            if (viewHolder.swipeLayout.isShown()) {
+                                vHolder.swipeLayout.close();
+                            }
                         }
                     }
                 }

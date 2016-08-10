@@ -131,8 +131,6 @@
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingRight="25dp"
-                android:paddingLeft="25dp"
                 android:layout_below="@+id/tabs"
                 android:background="@color/background_color">
 
@@ -161,7 +159,7 @@
 
     <fragment
         android:id="@+id/navigation_drawer"
-        class="tony.workout.activity.Menu"
+        class="tony.workout.activity.menu.Menu"
         android:layout_width="@dimen/navdrawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"

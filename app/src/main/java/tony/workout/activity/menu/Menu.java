@@ -1,8 +1,11 @@
-package tony.workout.activity;
+package tony.workout.activity.menu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +13,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import tony.workout.R;
+import tony.workout.activity.DayActivity;
 
 
-public class Menu extends Fragment implements SettingsDialog.MenuListener{
+public class Menu extends Fragment implements SettingsDialog.MenuListener {
 
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
     private View parentView;
 
-    private LinearLayout tvSettings, tvProfile, tvHowToUse;
+    private LinearLayout tvSettings, tvProfile, tvHowToUse, tvTrainings;
 
     @Override
     public void onApplyClicked(int position) {
@@ -31,7 +35,13 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        FragmentManager fm = getFragmentManager();
+        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                getActivity().finish();
+            }
+        });
     }
 
     @Override
@@ -47,16 +57,23 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.menu, container, false);
         tvHowToUse = (LinearLayout) parentView.findViewById(R.id.tvInfoInMenu);
         tvSettings = (LinearLayout) parentView.findViewById(R.id.tvSettingsInMenu);
         tvProfile = (LinearLayout) parentView.findViewById(R.id.tvProfileInMenu);
+        tvTrainings = (LinearLayout) parentView.findViewById(R.id.tvTrainingInMenu);
 
         tvHowToUse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (getActivity().getClass() == ActivityHowToUse.class) {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    Intent intent = new Intent(getContext(), ActivityHowToUse.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
             }
         });
 
@@ -72,6 +89,19 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener{
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        tvTrainings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getActivity().getClass() == DayActivity.class) {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    Intent intent = new Intent(getContext(), DayActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
             }
         });
 
@@ -95,6 +125,7 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener{
         mFragmentContainerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
     }
+
 
     @Override
     public void onDestroy() {

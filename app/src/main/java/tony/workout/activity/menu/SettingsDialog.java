@@ -1,4 +1,4 @@
-package tony.workout.activity;
+package tony.workout.activity.menu;
 
 import android.app.Dialog;
 import android.content.Context;

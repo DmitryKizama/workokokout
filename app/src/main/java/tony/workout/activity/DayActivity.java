@@ -1,7 +1,6 @@
 package tony.workout.activity;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -25,6 +24,7 @@ import java.util.Calendar;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
+import tony.workout.activity.menu.Menu;
 import tony.workout.helper.AnimationAddButton;
 import tony.workout.helper.Constant;
 
@@ -42,6 +42,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private Animation anim;
     //    private DayFragment dayFragment;
     private ViewGroup ll;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
