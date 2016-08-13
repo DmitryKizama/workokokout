@@ -9,27 +9,57 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linear_layout_in_menu"
             android:layout_width="match_parent"
             android:layout_height="128dp"
             android:background="@color/primary"
             android:orientation="horizontal"
-            android:weightSum="5">
+            android:weightSum="4">
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_panda_main_menu" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="PANDOUT"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/title_size_in_menu" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right|bottom"
+                    android:text="Tip of the day:"
+                    android:textColor="@color/background_color"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="never forget about the food (dumplings)"
+                    android:textColor="@color/background_color"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@android:dimen/notification_large_icon_height"
-            android:gravity="center"
-            android:text="all of you are pidorz"
-            android:textSize="20sp" />
 
         <!-- <View
             android:layout_width="match_parent"
@@ -44,10 +74,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:orientation="vertical"
                 android:weightSum="8">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:background="@color/color_tv_under_item" />
 
                 <LinearLayout
                     android:id="@+id/tvTrainingInMenu"

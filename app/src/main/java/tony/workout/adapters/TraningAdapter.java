@@ -2,12 +2,9 @@ package tony.workout.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.daimajia.swipe.SwipeLayout;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
 
     private List<InputData> inputs;
     public MyViewHolder vHolder;
-    private boolean isShown = false;
+    public static boolean isShown = false;
 
     private AdapterListener adapterListener;
     private Context context;
@@ -78,19 +75,19 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             }
         });
 
+        viewHolder.btnCancelInItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.swipeLayout.close();
+                isShown = false;
+            }
+        });
+
         viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 0, viewHolder.getAdapterPosition(), inputs.get(viewHolder.getAdapterPosition()).getName());
-                if (vHolder != null) {
-                    if (isShown) {
-                        vHolder.swipeLayout.close();
-                    } else {
-                        dialog.show();
-                    }
-                } else {
-                    dialog.show();
-                }
+                showDialog(dialog);
             }
         });
 
@@ -98,17 +95,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 1, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getWeight());
-                if (vHolder != null) {
-                    if (isShown) {
-                        vHolder.swipeLayout.close();
-                    } else {
-                        dialog.show();
-                    }
-                } else {
-                    dialog.show();
-                }
-
-
+                showDialog(dialog);
             }
         });
 
@@ -116,18 +103,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 2, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getApproaches());
-
-                if (vHolder != null) {
-                    if (isShown) {
-                        vHolder.swipeLayout.close();
-                    } else {
-                        dialog.show();
-                    }
-                } else {
-                    dialog.show();
-                }
-
-
+                showDialog(dialog);
             }
         });
 
@@ -135,26 +111,16 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
             @Override
             public void onClick(View v) {
                 UpdateDialog dialog = new UpdateDialog(context, TraningAdapter.this, 3, viewHolder.getAdapterPosition(), "" + inputs.get(viewHolder.getAdapterPosition()).getRepetition());
-                if (vHolder != null) {
-                    if (isShown) {
-                        vHolder.swipeLayout.close();
-                    } else {
-                        dialog.show();
-                    }
-                } else {
-                    dialog.show();
-                }
-
-
+                showDialog(dialog);
             }
         });
 
+        // -------------------------------------------------------------------------------------
 
         viewHolder.name.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Log.d("LONGCLICK", "in long click name");
-                viewHolder.swipeLayout.open();
+                showSwipeLayout(viewHolder);
                 return false;
             }
         });
@@ -162,7 +128,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.weight.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                viewHolder.swipeLayout.open();
+                showSwipeLayout(viewHolder);
                 return false;
             }
         });
@@ -170,7 +136,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.approaches.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                viewHolder.swipeLayout.open();
+                showSwipeLayout(viewHolder);
                 return false;
             }
         });
@@ -178,64 +144,12 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         viewHolder.repetition.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                viewHolder.swipeLayout.open();
+                showSwipeLayout(viewHolder);
                 return false;
             }
         });
 
-        viewHolder.btnCancelInItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewHolder.swipeLayout.close();
-            }
-        });
         viewHolder.swipeLayout.setSwipeEnabled(false);
-
-        viewHolder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
-            @Override
-            public void onClose(SwipeLayout layout) {
-                //when the SurfaceView totally cover the BottomView.
-                isShown = false;
-            }
-
-            @Override
-            public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
-                //you are swiping.
-            }
-
-            @Override
-            public void onStartOpen(SwipeLayout layout) {
-                isShown = true;
-            }
-
-            @Override
-            public void onOpen(SwipeLayout layout) {
-                //when the BottomView totally show.
-
-                if (vHolder != null) {
-
-                    if (vHolder.swipeLayout.isShown()) {
-                        if (viewHolder != vHolder) {
-                            if (viewHolder.swipeLayout.isShown()) {
-                                vHolder.swipeLayout.close();
-                            }
-                        }
-                    }
-                }
-                vHolder = viewHolder;
-            }
-
-            @Override
-            public void onStartClose(SwipeLayout layout) {
-
-            }
-
-            @Override
-            public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
-                //when user's hand released.
-            }
-        });
-
     }
 
     @Override
@@ -269,6 +183,30 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
     @Override
     public int getItemCount() {
         return inputs.size();
+    }
+
+    private void showSwipeLayout(MyViewHolder viewHolder) {
+        if (vHolder != null) {
+            if (vHolder.swipeLayout.isShown()) {
+                vHolder.swipeLayout.close();
+            }
+        }
+        isShown = true;
+        viewHolder.swipeLayout.open();
+        vHolder = viewHolder;
+    }
+
+    private void showDialog(UpdateDialog dialog) {
+        if (vHolder != null) {
+            if (isShown) {
+                vHolder.swipeLayout.close();
+                isShown = false;
+            } else {
+                dialog.show();
+            }
+        } else {
+            dialog.show();
+        }
     }
 
     /**

@@ -25,7 +25,6 @@ import java.util.Calendar;
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.activity.menu.Menu;
-import tony.workout.helper.AnimationAddButton;
 import tony.workout.helper.Constant;
 
 public class DayActivity extends AppCompatActivity implements StartDialog.DialogListener {
@@ -57,6 +56,18 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 //        dayFragment = (DayFragment) getFragmentManager().findFragmentById(R.id.rv);
 
         ll = (ViewGroup) findViewById(R.id.layout_in_day_activity);
+
+        ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder != null) {
+                    if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown) {
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
+                    }
+                }
+            }
+        });
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.placeholder, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -77,12 +88,17 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         ivSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder != null) {
+                    if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown) {
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
+                    }
+                }
                 ivSettings.startAnimation(anim);
                 mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
-        int msgDay = 0;
+        int msgDay;
         Calendar c = Calendar.getInstance();
         switch (c.get(Calendar.DAY_OF_WEEK)) {
             case Calendar.MONDAY:
@@ -129,28 +145,34 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
             public void onClick(View v) {
 //                btnAdd.startAnimation(AnimationUtils.loadAnimation(DayActivity.this, R.anim.rotate_and_scale));
                 StartDialog dialog = new StartDialog(DayActivity.this, DayActivity.this);
-                dialog.show();
+                if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder != null) {
+                    if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown) {
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown = false;
+                    } else {
+                        dialog.show();
+                    }
+                } else {
+                    dialog.show();
+                }
             }
         });
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-            private AnimationAddButton an = AnimationAddButton.getInstance(btnAdd);
-
             @Override
             public void onPageSelected(int position) {
                 Log.d(TAG, "onPageSelected, position = " + position);
-//                pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
-//                pager.setAdapter(pagerAdapter);
-                if (!an.isShown()) {
-                    an.showButton();
-                }
             }
 
             @Override
             public void onPageScrolled(int position, float positionOffset,
                                        int positionOffsetPixels) {
-
+                if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder != null) {
+                    if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown) {
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
+                    }
+                }
 //                Log.d(TAG, "onPageScrolled, position = " + position);
             }
 

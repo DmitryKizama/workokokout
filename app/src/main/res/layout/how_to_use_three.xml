@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        style="?android:textAppearanceMedium"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1.2"
-        android:padding="16dp"
-        android:text="TEXT THREE" />
-</LinearLayout>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_n4"
+            style="?android:textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="16dp"
+            android:text="If you want to change weight, name or another part of an exercise, make the same click" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="385dp"
+            android:layout_height="230dp"
+            android:layout_below="@+id/tv_n4"
+            android:src="@drawable/update_min" />
+
+        <TextView
+            android:id="@+id/tv_n5"
+            style="?android:textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView20"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="16dp"
+            android:text="Pay attention that weight, repetition, approaches contain only numbers!" />
+
+        <TextView
+            android:id="@+id/tv_n6"
+            style="?android:textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_n5"
+            android:layout_centerHorizontal="true"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="16dp"
+            android:text="Enjoy Pandout :)" />
+
+    </RelativeLayout>
+</ScrollView>

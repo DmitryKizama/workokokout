@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="@android:dimen/notification_large_icon_height">
     <!-- Bottom View Start-->
+
     <LinearLayout
         android:id="@+id/bottom_wrapper"
         android:layout_width="match_parent"
@@ -13,13 +14,13 @@
         <!--What you want to show-->
 
         <LinearLayout
+            android:id="@+id/btnDelete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/btnDelete"
                 android:layout_width="35dp"
                 android:layout_height="55dp"
                 android:src="@drawable/trash" />

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
@@ -25,6 +27,7 @@ public class SettingsDialog extends Dialog {
     }
 
     private FancyButton cancel, apply;
+    private Switch switch_in_menu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,14 @@ public class SettingsDialog extends Dialog {
 
         cancel = (FancyButton) findViewById(R.id.btnCancelInMenu);
         apply = (FancyButton) findViewById(R.id.btnApplyInMenu);
+        switch_in_menu = (Switch) findViewById(R.id.switch_in_menu);
 
+        switch_in_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "It isn't work in this version", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

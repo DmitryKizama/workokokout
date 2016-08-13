@@ -13,7 +13,7 @@ import tony.workout.R;
 public class MyViewHolder extends RecyclerView.ViewHolder {
     public TextView name, repetition, weight, approaches, btnCancelInItem;
     //    public TextView tvName, tvWeight, tvApproaches, tvRepetition;
-    public ImageView btnDelete;
+    public LinearLayout btnDelete;
     public SwipeLayout swipeLayout;
     public LinearLayout bottom_wrapper, topLayout;
 //    public LinearLayout linearLayoutNAME, linearLayoutREPP, linearLayoutAPPR, linearLayoutWEIGHT;
@@ -37,7 +37,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         name = (TextView) itemView.findViewById(R.id.recyclerViewItemName);
         repetition = (TextView) itemView.findViewById(R.id.recyclerViewItemRepetition);
         approaches = (TextView) itemView.findViewById(R.id.recyclerViewItemApproaches);
-        btnDelete = (ImageView) itemView.findViewById(R.id.btnDelete);
+        btnDelete = (LinearLayout) itemView.findViewById(R.id.btnDelete);
         btnCancelInItem = (TextView) itemView.findViewById(R.id.btnCancelInItem);
     }
 }

@@ -16,7 +16,6 @@ import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.adapters.TraningAdapter;
 import tony.workout.data.InputData;
-import tony.workout.helper.AnimationAddButton;
 
 public class DayFragment extends Fragment implements TraningAdapter.AdapterListener {
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
@@ -78,6 +77,7 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(mLayoutManager);
 
+
         rv.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -91,25 +91,18 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
             }
         });
 
-
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-            private AnimationAddButton an = AnimationAddButton.getInstance(btnAdd);
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    Log.d("onScrolled", "dy > 0");
+                    btnAdd.setTranslationY(350);
 
-                if (an.isShown()) {
-                    if (dy > 0) {
-                        an.hideButton();
-                        Log.d("addOnScrollListener", "hide");
-                    }
-                } else {
-                    if (dy < 0) {
-                        an.showButton();
-                        Log.d("addOnScrollListener", "show");
-                    }
+                }
+                if (dy < 0) {
+                    btnAdd.setTranslationY(-350);
                 }
             }
 
