@@ -19,10 +19,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.Calendar;
 
-import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.activity.menu.Menu;
 import tony.workout.helper.Constant;
@@ -33,7 +33,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 
     private ViewPager pager;
     private MyFragmentPagerAdapter pagerAdapter;
-    private FancyButton btnAdd;
+    private FloatingActionButton btnAdd;
     private Menu mMenu;
     private DrawerLayout mDrawerLayout;
     private ImageView ivSettings;
@@ -128,7 +128,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         }
 
         pager = (ViewPager) findViewById(R.id.pager);
-        btnAdd = (FancyButton) findViewById(R.id.btnAdd);
+        btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), btnAdd);
         pager.setAdapter(pagerAdapter);
@@ -140,6 +140,9 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(pager);
 
+        btnAdd.setColorNormal(getResources().getColor(R.color.primary));
+        btnAdd.setColorPressed(getResources().getColor(R.color.primary_pressed));
+        btnAdd.setColorRipple(getResources().getColor(R.color.primary_pressed));
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,6 +176,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
                         pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
                     }
                 }
+                btnAdd.show();
 //                Log.d(TAG, "onPageScrolled, position = " + position);
             }
 
@@ -194,9 +198,9 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         SparseArray<DayFragment> registeredFragments = new SparseArray<DayFragment>();
-        FancyButton btn;
+        FloatingActionButton btn;
 
-        public MyFragmentPagerAdapter(FragmentManager fm, FancyButton btnAddInDayActivity) {
+        public MyFragmentPagerAdapter(FragmentManager fm, FloatingActionButton btnAddInDayActivity) {
             super(fm);
             this.btn = btnAddInDayActivity;
         }

@@ -71,7 +71,8 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
         pandaLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                GratitudeDialog dialog = new GratitudeDialog(getContext());
+                dialog.show();
             }
         });
 

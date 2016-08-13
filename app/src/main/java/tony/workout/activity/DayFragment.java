@@ -10,9 +10,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melnykov.fab.FloatingActionButton;
+
 import java.util.List;
 
-import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.adapters.TraningAdapter;
 import tony.workout.data.InputData;
@@ -31,9 +32,9 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
     List<InputData> lst;
     private InputData inData;
     private int idPreviouse;
-    private static FancyButton btnAdd;
+    private static FloatingActionButton btnAdd;
 
-    public static DayFragment newInstance(int page, FancyButton btn) {
+    public static DayFragment newInstance(int page, FloatingActionButton btn) {
         DayFragment d = new DayFragment();
         Bundle args = new Bundle();
         args.putInt(ARGUMENT_PAGE_NUMBER, page);
@@ -77,6 +78,7 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(mLayoutManager);
 
+        btnAdd.attachToRecyclerView(rv);
 
         rv.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -91,31 +93,6 @@ public class DayFragment extends Fragment implements TraningAdapter.AdapterListe
             }
         });
 
-        rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (dy > 0) {
-                    Log.d("onScrolled", "dy > 0");
-                    btnAdd.setTranslationY(350);
-
-                }
-                if (dy < 0) {
-                    btnAdd.setTranslationY(-350);
-                }
-            }
-
-
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-//                if (newState == 0) {
-//                    AnimationAddButton.hideButton(btnAdd);
-//                }
-
-            }
-        });
 
         return view;
     }

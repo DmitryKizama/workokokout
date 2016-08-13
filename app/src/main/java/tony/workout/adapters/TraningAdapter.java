@@ -72,6 +72,7 @@ public class TraningAdapter extends RecyclerView.Adapter<MyViewHolder> implement
                 inputs.get(pos).delete();
                 inputs.remove(pos);
                 notifyItemRemoved(pos);
+                isShown = false;
             }
         });
 
