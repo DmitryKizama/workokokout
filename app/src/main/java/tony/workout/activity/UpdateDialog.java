@@ -2,6 +2,7 @@ package tony.workout.activity;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +50,14 @@ public class UpdateDialog extends Dialog {
         super.onCreate(savedInstanceState);
 
 
-        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.update_dialog);
+
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.dimAmount = 0.7f;
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
         ViewGroup parent = (ViewGroup) findViewById(R.id.parentInUpdate);
 //        parent.getLayoutParams().height = UIhelper.getH() / 2;

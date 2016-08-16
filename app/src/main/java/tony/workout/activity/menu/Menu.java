@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import tony.workout.activity.DayActivity;
 
 public class Menu extends Fragment implements SettingsDialog.MenuListener {
 
-    private DrawerLayout mDrawerLayout;
+    public static DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
     private View parentView;
     private LinearLayout pandaLayout;
@@ -38,12 +39,12 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FragmentManager fm = getFragmentManager();
-        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-                getActivity().finish();
-            }
-        });
+//        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+//            @Override
+//            public void onBackStackChanged() {
+//                mDrawerLayout.closeDrawer(GravityCompat.START);
+//            }
+//        });
     }
 
     @Override
@@ -61,6 +62,13 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.menu, container, false);
+
+        getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+        });
 
         pandaLayout = (LinearLayout) parentView.findViewById(R.id.linear_layout_in_menu);
         tvHowToUse = (LinearLayout) parentView.findViewById(R.id.tvInfoInMenu);

@@ -194,6 +194,15 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         pager.setCurrentItem(pager.getCurrentItem());
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (Menu.mDrawerLayout != null) {
+            if (Menu.mDrawerLayout.isShown()) {
+                Menu.mDrawerLayout.closeDrawer(GravityCompat.START);
+            }
+        }
+    }
 
     private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 

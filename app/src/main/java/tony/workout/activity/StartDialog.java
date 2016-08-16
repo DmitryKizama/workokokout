@@ -40,6 +40,10 @@ public class StartDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.start_dialog);
 
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.dimAmount = 0.7f;
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
         ViewGroup parent = (ViewGroup) findViewById(R.id.parent);
 //        parent.getLayoutParams().height = UIhelper.getH() / 2;
         parent.getLayoutParams().width = UIhelper.getW() - UIhelper.getPixel(30);

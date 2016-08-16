@@ -1,5 +1,6 @@
 package tony.workout.activity.menu;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import tony.workout.R;
+import tony.workout.activity.DayActivity;
 
 public class ActivityHowToUse extends FragmentActivity {
     /**
@@ -84,6 +86,14 @@ public class ActivityHowToUse extends FragmentActivity {
         mPager.setAdapter(mPagerAdapter);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, DayActivity.class);
+        finish();
+        startActivity(intent);
+
+    }
 
     /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
