@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
@@ -25,6 +26,10 @@ public class GratitudeDialog extends Dialog {
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.dimAmount = 0.7f;
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
         setContentView(R.layout.gratitude_dialog);
 

@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="bottom"
-                    android:text="PANDOUT"
+                    android:text="@string/app_name"
                     android:textColor="@color/orange"
                     android:textSize="@dimen/title_size_in_menu" />
 
@@ -44,11 +44,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right|bottom"
-                    android:text="Tip of the day:"
+                    android:text="@string/tip_of_day"
                     android:textColor="@color/background_color"
                     android:textSize="17sp" />
 
                 <TextView
+                    android:id="@+id/text_view_tip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -99,7 +100,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Trainings"
+                        android:text="@string/trainings"
                         android:textSize="@dimen/text_size_in_menu" />
 
 
@@ -152,7 +153,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="How to use"
+                        android:text="@string/how_to_use"
                         android:textSize="@dimen/text_size_in_menu" />
 
                 </LinearLayout>
@@ -178,7 +179,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Settings"
+                        android:text="@string/settings"
                         android:textSize="@dimen/text_size_in_menu" />
 
 

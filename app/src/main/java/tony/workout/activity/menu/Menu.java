@@ -7,11 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 import tony.workout.R;
 import tony.workout.activity.DayActivity;
@@ -23,6 +26,7 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     private View mFragmentContainerView;
     private View parentView;
     private LinearLayout pandaLayout;
+    private TextView tvTip;
 
     private LinearLayout tvSettings, tvHowToUse, tvTrainings;
 //    private LinearLayout tvProfile;
@@ -75,6 +79,9 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
         tvSettings = (LinearLayout) parentView.findViewById(R.id.tvSettingsInMenu);
 //        tvProfile = (LinearLayout) parentView.findViewById(R.id.tvProfileInMenu);
         tvTrainings = (LinearLayout) parentView.findViewById(R.id.tvTrainingInMenu);
+
+        tvTip = (TextView) parentView.findViewById(R.id.text_view_tip);
+        tvTip.setText(insertNewTip());
 
         pandaLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +157,19 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    private String insertNewTip() {
+//        String[] list = {getResources().getString(R.string.Never_say_no_to_panda), getResources().getString(R.string.Follow_the_schedule_go_to_sleep),
+//                getResources().getString(R.string.Don_t_forget_about_dumplings_eat), getResources().getString(R.string.Transform_soft_and_fluffy_into_strong_and_fluffy)};
+        ArrayList<String> list = new ArrayList();
+        list.add(getResources().getString(R.string.never_say_no_to_panda));
+        list.add(getResources().getString(R.string.follow_the_schedule_go_to_sleep));
+        list.add(getResources().getString(R.string.don_t_forget_about_dumplings_eat));
+        list.add(getResources().getString(R.string.transform_soft_and_fluffy_into_strong_and_fluffy));
+        Random random = new Random();
+        String strTip = list.get(random.nextInt(list.size()));
+        return strTip;
     }
 
 }

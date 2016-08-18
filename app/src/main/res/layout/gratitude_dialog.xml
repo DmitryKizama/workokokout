@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:lineSpacingMultiplier="1.2"
         android:padding="16dp"
-        android:text="Pandas creators"
+        android:text="@string/pandas_creators"
         android:textColor="@color/orange" />
 
     <LinearLayout
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.2"
                 android:padding="16dp"
-                android:text="Develop:"
+                android:text="@string/development"
                 android:textColor="@color/color_of_words" />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.2"
                 android:padding="16dp"
-                android:text="Dmitry Kizama"
+                android:text="@string/dmitry"
                 android:textColor="@color/orange" />
 
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.2"
                 android:padding="16dp"
-                android:text="Design:"
+                android:text="@string/design"
                 android:textColor="@color/color_of_words" />
 
             <LinearLayout
@@ -76,7 +76,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:paddingLeft="16dp"
                     android:paddingTop="16dp"
-                    android:text="Alexandra Berezyuk"
+                    android:text="@string/alexandra"
                     android:textColor="@color/orange" />
 
                 <TextView
@@ -86,7 +86,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:paddingBottom="16dp"
                     android:paddingLeft="16dp"
-                    android:text="Dmitry Kizama"
+                    android:text="@string/dmitry"
                     android:textColor="@color/orange" />
 
             </LinearLayout>
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.2"
                 android:padding="16dp"
-                android:text="Special thanks:"
+                android:text="@string/special_thanks"
                 android:textColor="@color/color_of_words" />
 
             <LinearLayout
@@ -121,7 +121,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:paddingLeft="16dp"
                     android:paddingTop="16dp"
-                    android:text="Anton Kizama"
+                    android:text="@string/anton"
                     android:textColor="@color/orange" />
 
                 <TextView
@@ -131,7 +131,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:paddingBottom="16dp"
                     android:paddingLeft="16dp"
-                    android:text="Svetlana Kovalenko"
+                    android:text="@string/sveta"
                     android:textColor="@color/orange" />
 
             </LinearLayout>
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="40dp"
-            android:text="Contact us with or without cause :)" />
+            android:text="@string/contact_us_1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -153,7 +153,7 @@
             android:layout_gravity="right"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="40dp"
-            android:text="facebook.com/st.dmytro" />
+            android:text="@string/contact_us_2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,7 +169,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 fancy:fb_defaultColor="@color/background_color"
-                fancy:fb_text="Rate us"
+                fancy:fb_text="@string/btn_rate"
                 fancy:fb_textColor="@color/orange" />
 
             <TextView
@@ -185,7 +185,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 fancy:fb_defaultColor="@color/background_color"
-                fancy:fb_text="Cancel"
+                fancy:fb_text="@string/btn_cancel"
                 fancy:fb_textColor="@color/primary" />
 
         </LinearLayout>
