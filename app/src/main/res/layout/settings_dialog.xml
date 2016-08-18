@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/fab_size_mini"
         android:gravity="center"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textSize="46sp" />
 
     <LinearLayout
@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Turn notifications"
+            android:text="@string/turn_notification"
             android:textSize="24sp" />
 
         <Switch
@@ -50,7 +50,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             fancy:fb_defaultColor="@color/background_color"
-            fancy:fb_text="Apply"
+            fancy:fb_text="@string/btn_apply"
             fancy:fb_textColor="@color/orange" />
 
         <TextView
@@ -66,7 +66,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             fancy:fb_defaultColor="@color/background_color"
-            fancy:fb_text="Cancel"
+            fancy:fb_text="@string/btn_cancel"
             fancy:fb_textColor="@color/primary" />
 
     </LinearLayout>

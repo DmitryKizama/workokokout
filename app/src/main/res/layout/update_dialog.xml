@@ -52,7 +52,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     fancy:fb_defaultColor="@color/background_color"
-                    fancy:fb_text="Apply"
+                    fancy:fb_text="@string/btn_apply"
                     fancy:fb_textColor="@color/orange" />
 
                 <TextView
@@ -68,7 +68,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     fancy:fb_defaultColor="@color/background_color"
-                    fancy:fb_text="Cancel"
+                    fancy:fb_text="@string/btn_cancel"
                     fancy:fb_textColor="@color/primary" />
 
 

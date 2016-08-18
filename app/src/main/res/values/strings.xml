@@ -21,8 +21,21 @@
     <string name="contact_us_1">Contact us with or without cause :)</string>
     <string name="contact_us_2">facebook.com/st.dmytro</string>
 
+    <string name="turn_notification">Turn notifications</string>
+    <string name="enter_following">Enter the following:</string>
+    <string name="name_trainings">Name of training:</string>
+    <string name="repetition">Repetition:</string>
+    <string name="approaches">Approaches:</string>
+
     <string name="btn_rate">Rate us</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="btn_apply">Apply</string>
+    <string name="attention">Only numbers!</string>
+
+    <string name="update_name">Update the name</string>
+    <string name="update_weight">Update weight</string>
+    <string name="update_repeat">Update repetition</string>
+    <string name="update_approaches">Update approaches</string>
 
     <string name="dmitry">Dmitry Kizama</string>
     <string name="alexandra"> Alexandra Berezyuk</string>
@@ -32,9 +45,12 @@
     <string name="tv_text_1">Welcome to the Pandout. This app is intended for record training.  Here you can see a brief instruction how to use it.</string>
     <string name="tv_text_2">This is your start page. In order to add a new exercise press the 'plus' button. You will see dialog box which is shown below.</string>
     <string name="tv_text_3">Red circle shows the optimal number of words in the title, but it is not required.</string>
-    <string name="tv_text_4">Svetlana Kovalenko</string>
-    <string name="tv_text_5">Svetlana Kovalenko</string>
-    <string name="tv_text_6">Svetlana Kovalenko</string>
+    <string name="tv_text_4">For example: enter workout name - 'pullups', weight (kilograms) - '10', Approaches (amount) - '15', Repetition (repeat) - '3'.</string>
+    <string name="tv_text_5">Make a long click on the item.</string>
+    <string name="tv_text_6">In order to cancel an action click on any part of the screen or make a long click on another exercise</string>
+    <string name="tv_text_7">If you want to change weight, name or another part of an exercise, make the same click</string>
+    <string name="tv_text_8">Pay attention that weight, repetition, approaches must contain only numbers!</string>
+    <string name="tv_text_9">Enjoy Pandout :)</string>
 
     <string name="never_say_no_to_panda">Never say no to panda</string>
     <string name="follow_the_schedule_go_to_sleep">Follow the schedule - go to sleep</string>

@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Enter the following:"
+                android:text="@string/enter_following"
                 android:textColor="@color/color_of_words"
                 android:textSize="30sp" />
 
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Name of training:"
+                android:text="@string/name_trainings"
                 android:textColor="@color/color_of_words"
                 android:textSize="20sp" />
 
@@ -67,7 +67,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Repetition:"
+                        android:text="@string/repetition"
                         android:textColor="@color/color_of_words"
                         android:textSize="@dimen/text_size_in_dialog" />
 
@@ -99,7 +99,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Approaches:"
+                        android:text="@string/approaches"
                         android:textColor="@color/color_of_words"
                         android:textSize="@dimen/text_size_in_dialog" />
 
@@ -131,7 +131,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Weight:"
+                        android:text="@string/weight"
                         android:textColor="@color/color_of_words"
                         android:textSize="@dimen/text_size_in_dialog" />
 
@@ -165,7 +165,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     fancy:fb_defaultColor="@color/background_color"
-                    fancy:fb_text="Apply"
+                    fancy:fb_text="@string/btn_apply"
                     fancy:fb_textColor="@color/orange" />
 
                 <TextView
@@ -181,7 +181,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     fancy:fb_defaultColor="@color/background_color"
-                    fancy:fb_text="Cancel"
+                    fancy:fb_text="@string/btn_cancel"
                     fancy:fb_textColor="@color/primary" />
 
 

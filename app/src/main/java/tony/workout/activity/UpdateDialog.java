@@ -67,16 +67,16 @@ public class UpdateDialog extends Dialog {
 
         switch (changegElement) {
             case 0:
-                tvMain.setText("Update the name");
+                tvMain.setText(getContext().getResources().getString(R.string.update_name));
                 break;
             case 1:
-                tvMain.setText("Update weight");
+                tvMain.setText(getContext().getResources().getString(R.string.update_weight));
                 break;
             case 2:
-                tvMain.setText("Update approaches");
+                tvMain.setText(getContext().getResources().getString(R.string.update_approaches));
                 break;
             case 3:
-                tvMain.setText("Update repetition");
+                tvMain.setText(getContext().getResources().getString(R.string.update_repeat));
                 break;
         }
 
@@ -104,21 +104,21 @@ public class UpdateDialog extends Dialog {
                         try {
                             dialogListener.onOkWeightChange(Integer.parseInt(etSom.getText().toString()), position);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(getContext(), "ONLY NUMBER!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), getContext().getResources().getString(R.string.attention), Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 2:
                         try {
                             dialogListener.onOkApproachesChange(Integer.parseInt(etSom.getText().toString()), position);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(getContext(), "ONLY NUMBER!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), getContext().getResources().getString(R.string.attention), Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 3:
                         try {
                             dialogListener.onOkRepetitionChange(Integer.parseInt(etSom.getText().toString()), position);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(getContext(), "ONLY NUMBER!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), getContext().getResources().getString(R.string.attention), Toast.LENGTH_SHORT).show();
                         }
                         break;
                     default:
