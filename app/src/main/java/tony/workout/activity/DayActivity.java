@@ -48,6 +48,12 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         super.onCreate(savedInstanceState);
         setContentView(R.layout.day_activity);
 
+//        Resources res = getResources();
+//        DisplayMetrics dm = res.getDisplayMetrics();
+//        android.content.res.Configuration conf = res.getConfiguration();
+//        conf.locale = new Locale(UsersSettings.getUsersSettings().getLanguage());
+//        res.updateConfiguration(conf, dm);
+
         mMenu = (Menu)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -228,7 +234,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
             this.btn = btnAddInDayActivity;
         }
 
-        private final String[] TITLES = {getResources().getString(R.string.mon),getResources().getString(R.string.tue),
+        private final String[] TITLES = {getResources().getString(R.string.mon), getResources().getString(R.string.tue),
                 getResources().getString(R.string.wed), getResources().getString(R.string.thu),
                 getResources().getString(R.string.fri), getResources().getString(R.string.sut),
                 getResources().getString(R.string.sun)};

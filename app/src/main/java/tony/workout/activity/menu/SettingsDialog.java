@@ -2,7 +2,6 @@ package tony.workout.activity.menu;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -20,6 +19,7 @@ import java.util.Locale;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
+import tony.workout.data.UsersSettings;
 import tony.workout.helper.UIhelper;
 
 public class SettingsDialog extends Dialog {
@@ -31,6 +31,7 @@ public class SettingsDialog extends Dialog {
 
     interface MenuListener {
         void onApplyClicked(int position);
+
         void onLangChanged();
     }
 
@@ -100,6 +101,11 @@ public class SettingsDialog extends Dialog {
                         locale = new Locale("en_US");
                         break;
                 }
+
+                UsersSettings usersSettings = UsersSettings.getUsersSettings();
+                usersSettings.setLanguage(locale.getLanguage());
+                usersSettings.save();
+
                 Resources res = getContext().getResources();
                 // Change locale settings in the app.
                 DisplayMetrics dm = res.getDisplayMetrics();

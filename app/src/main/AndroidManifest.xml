@@ -19,7 +19,7 @@
 
         <meta-data
             android:name="AA_MODELS"
-            android:value="tony.workout.data.InputData" />
+            android:value="tony.workout.data.InputData, tony.workout.data.UsersSettings" />
 
         <activity android:name=".activity.menu.ActivityHowToUse" />
 
