@@ -1,5 +1,6 @@
 package tony.workout.activity.menu;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,7 +23,7 @@ import android.widget.ImageView;
 import tony.workout.R;
 import tony.workout.activity.DayActivity;
 
-public class ActivityHowToUse extends FragmentActivity {
+public class ActivityHowToUse extends FragmentActivity implements Menu.MenuCallback{
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -93,6 +94,18 @@ public class ActivityHowToUse extends FragmentActivity {
         finish();
         startActivity(intent);
 
+    }
+
+    @Override
+    public void onChangeLang() {
+        Intent intent = new Intent(this, ActivityHowToUse.class);
+        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            finishAffinity();
+        } else {
+            finish();
+        }
     }
 
     /**

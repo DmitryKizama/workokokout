@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,9 +32,20 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     private LinearLayout tvSettings, tvHowToUse, tvTrainings;
 //    private LinearLayout tvProfile;
 
+    private MenuCallback listener;
+
+    public interface MenuCallback{
+        void onChangeLang();
+    }
+
     @Override
     public void onApplyClicked(int position) {
 
+    }
+
+    @Override
+    public void onLangChanged() {
+        listener.onChangeLang();
     }
 
     public Menu() {
@@ -60,7 +72,12 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-//        listener = (OnSettingsListener) activity;
+
+        try {
+            listener = (MenuCallback) activity;
+        } catch (ClassCastException e){
+            Log.e("ERROR", "Main activity should implement " + MenuCallback.class);
+        }
     }
 
     @Override
@@ -167,6 +184,11 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
         list.add(getResources().getString(R.string.follow_the_schedule_go_to_sleep));
         list.add(getResources().getString(R.string.don_t_forget_about_dumplings_eat));
         list.add(getResources().getString(R.string.transform_soft_and_fluffy_into_strong_and_fluffy));
+        list.add(getResources().getString(R.string.it_s_a_high_time));
+        list.add(getResources().getString(R.string.start_small));
+        list.add(getResources().getString(R.string.why_so_serious));
+        list.add(getResources().getString(R.string.why_do_we_fall));
+        list.add(getResources().getString(R.string.do_penguins_have_knees));
         Random random = new Random();
         String strTip = list.get(random.nextInt(list.size()));
         return strTip;

@@ -1,8 +1,22 @@
 <resources>
-    <string name="app_name">PANDOUT</string>
+    <string name="app_name">Sports schedule</string>
 
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Русский</item>
+        <item>Українська</item>
+    </string-array>
+
+    <string name="mon">MONDAY</string>
+    <string name="tue">TUESDAY</string>
+    <string name="wed">WEDNESDAY</string>
+    <string name="thu">THURSDAY</string>
+    <string name="fri">FRIDAY</string>
+    <string name="sut">SATURDAY</string>
+    <string name="sun">SUNDAY</string>
 
     <string name="trainings">Trainings</string>
     <string name="how_to_use">How to use</string>
@@ -20,6 +34,7 @@
     <string name="special_thanks">Special thanks:</string>
     <string name="contact_us_1">Contact us with or without cause :)</string>
     <string name="contact_us_2">facebook.com/st.dmytro</string>
+    <string name="choose_language">Language</string>
 
     <string name="turn_notification">Turn notifications</string>
     <string name="enter_following">Enter the following:</string>
@@ -31,6 +46,7 @@
     <string name="btn_cancel">Cancel</string>
     <string name="btn_apply">Apply</string>
     <string name="attention">Only numbers!</string>
+    <string name="its_not_working">It isn`t work in this version</string>
 
     <string name="update_name">Update the name</string>
     <string name="update_weight">Update weight</string>
@@ -42,10 +58,10 @@
     <string name="anton">Anton Kizama</string>
     <string name="sveta">Svetlana Kovalenko</string>
 
-    <string name="tv_text_1">Welcome to the Pandout. This app is intended for record training.  Here you can see a brief instruction how to use it.</string>
-    <string name="tv_text_2">This is your start page. In order to add a new exercise press the 'plus' button. You will see dialog box which is shown below.</string>
+    <string name="tv_text_1">Welcome to the Sports Schedule. This app is intended for record training.  Here you can see a brief instruction how to use it.</string>
+    <string name="tv_text_2">This is your start page. In order to add a new exercise press the "plus" button. You will see dialog box which is shown below.</string>
     <string name="tv_text_3">Red circle shows the optimal number of words in the title, but it is not required.</string>
-    <string name="tv_text_4">For example: enter workout name - 'pullups', weight (kilograms) - '10', Approaches (amount) - '15', Repetition (repeat) - '3'.</string>
+    <string name="tv_text_4">For example: enter workout name - "pullups", weight (kilograms) - "10", Approaches (amount) - "15", Repetition (repeat) - "3".</string>
     <string name="tv_text_5">Make a long click on the item.</string>
     <string name="tv_text_6">In order to cancel an action click on any part of the screen or make a long click on another exercise</string>
     <string name="tv_text_7">If you want to change weight, name or another part of an exercise, make the same click</string>
@@ -56,5 +72,10 @@
     <string name="follow_the_schedule_go_to_sleep">Follow the schedule - go to sleep</string>
     <string name="don_t_forget_about_dumplings_eat">Don`t forget about dumplings - eat</string>
     <string name="transform_soft_and_fluffy_into_strong_and_fluffy">Transform soft and fluffy into strong and fluffy</string>
+    <string name="it_s_a_high_time">It`s a high time for great things</string>
+    <string name="start_small">Start small, finish big</string>
+    <string name="why_so_serious">Why so serious?</string>
+    <string name="why_do_we_fall">Why do we fall?</string>
+    <string name="do_penguins_have_knees">Do penguins have knees?</string>
 
 </resources>

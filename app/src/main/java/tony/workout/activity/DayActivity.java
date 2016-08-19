@@ -1,5 +1,6 @@
 package tony.workout.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,9 +26,8 @@ import java.util.Calendar;
 
 import tony.workout.R;
 import tony.workout.activity.menu.Menu;
-import tony.workout.helper.Constant;
 
-public class DayActivity extends AppCompatActivity implements StartDialog.DialogListener {
+public class DayActivity extends AppCompatActivity implements StartDialog.DialogListener, Menu.MenuCallback {
     static final String TAG = "myLogs";
     static final int PAGE_COUNT = 7;
 
@@ -63,6 +63,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
                 if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder != null) {
                     if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown) {
                         pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown = false;
                     }
                 }
             }
@@ -91,6 +92,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
                 if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder != null) {
                     if (pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown) {
                         pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.vHolder.swipeLayout.close();
+                        pagerAdapter.getRegisteredFragment(pager.getCurrentItem()).adapter.isShown = false;
                     }
                 }
                 ivSettings.startAnimation(anim);
@@ -204,6 +206,18 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         }
     }
 
+    @Override
+    public void onChangeLang() {
+        Intent intent = new Intent(this, DayActivity.class);
+        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            finishAffinity();
+        } else {
+            finish();
+        }
+    }
+
     private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         SparseArray<DayFragment> registeredFragments = new SparseArray<DayFragment>();
@@ -214,8 +228,10 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
             this.btn = btnAddInDayActivity;
         }
 
-        private final String[] TITLES = {Constant.MONDAY, Constant.TUESDAY, Constant.WEDNESDAY, Constant.THURSDAY, Constant.FRIDAY, Constant.SATURDAY,
-                Constant.SUNDAY};
+        private final String[] TITLES = {getResources().getString(R.string.mon),getResources().getString(R.string.tue),
+                getResources().getString(R.string.wed), getResources().getString(R.string.thu),
+                getResources().getString(R.string.fri), getResources().getString(R.string.sut),
+                getResources().getString(R.string.sun)};
 
         @Override
         public CharSequence getPageTitle(int position) {
