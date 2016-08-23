@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
+import tony.workout.data.UsersSettings;
 import tony.workout.helper.UIhelper;
 
 public class RateDialog extends Dialog {
@@ -61,6 +62,8 @@ public class RateDialog extends Dialog {
                 } else {
                     Toast.makeText(con, con.getResources().getString(R.string.thanks), Toast.LENGTH_SHORT).show();
                 }
+                UsersSettings.getUsersSettings().setRate(true);
+                dismiss();
             }
         });
 

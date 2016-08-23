@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
+import tony.workout.data.UsersSettings;
 import tony.workout.helper.UIhelper;
 
 public class GratitudeDialog extends Dialog {
@@ -45,8 +47,12 @@ public class GratitudeDialog extends Dialog {
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RateDialog dialog = new RateDialog(con);
-                dialog.show();
+                if (!UsersSettings.getUsersSettings().getRate()) {
+                    RateDialog dialog = new RateDialog(con);
+                    dialog.show();
+                } else {
+                    Toast.makeText(con, con.getResources().getString(R.string.already), Toast.LENGTH_SHORT).show();
+                }
                 dismiss();
             }
         });

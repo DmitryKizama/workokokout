@@ -4,12 +4,6 @@
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
 
-    <string-array name="languages">
-        <item>English</item>
-        <item>Русский</item>
-        <item>Українська</item>
-    </string-array>
-
     <string name="mon">Понеділок</string>
     <string name="tue">Вівторок</string>
     <string name="wed">Середа</string>
@@ -44,6 +38,7 @@
 
     <string name="btn_rate">Оцінити</string>
     <string name="btn_cancel">Заплющити</string>
+    <string name="btn_ok">Ок</string>
     <string name="btn_apply">Зберегти</string>
     <string name="attention">Тільки числа!</string>
     <string name="its_not_working">Не працює у цій версії</string>
@@ -78,4 +73,7 @@
     <string name="why_do_we_fall">Все забирай, нічого не віддавай</string>
     <string name="do_penguins_have_knees">Чи є у пінгвінів коліна?</string>
 
+    <string name="rate_text">Оцінка, на яку заслуговуємо</string>
+    <string name="thanks">Дякуємо</string>
+    <string name="already">Ви вже оцінили</string>
 </resources>

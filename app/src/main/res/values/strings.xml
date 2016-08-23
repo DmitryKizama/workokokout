@@ -81,4 +81,5 @@
 
     <string name="rate_text">Rating that we deserve</string>
     <string name="thanks">Thank you for rating</string>
+    <string name="already">You have already rated</string>
 </resources>
