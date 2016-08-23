@@ -3,11 +3,17 @@ package tony.workout.helper;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.IBinder;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+
+import java.util.Locale;
+
+import tony.workout.data.UsersSettings;
 
 public class UIhelper {
 
@@ -98,6 +104,15 @@ public class UIhelper {
 
     public static int getKeyboardHeight() {
         return keyboardHeight;
+    }
+
+    public static void setConfigs(){
+        Resources res = appContext.getResources();
+        // Change locale settings in the app.
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = new Locale(UsersSettings.getUsersSettings().getLanguage());
+        res.updateConfiguration(conf, dm);
     }
 
 }

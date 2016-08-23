@@ -26,6 +26,7 @@ import java.util.Calendar;
 
 import tony.workout.R;
 import tony.workout.activity.menu.Menu;
+import tony.workout.helper.UIhelper;
 
 public class DayActivity extends AppCompatActivity implements StartDialog.DialogListener, Menu.MenuCallback {
     static final String TAG = "myLogs";
@@ -45,14 +46,11 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        UIhelper.setConfigs();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.day_activity);
 
-//        Resources res = getResources();
-//        DisplayMetrics dm = res.getDisplayMetrics();
-//        android.content.res.Configuration conf = res.getConfiguration();
-//        conf.locale = new Locale(UsersSettings.getUsersSettings().getLanguage());
-//        res.updateConfiguration(conf, dm);
+
 
         mMenu = (Menu)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

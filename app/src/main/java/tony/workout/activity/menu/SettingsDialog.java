@@ -102,17 +102,18 @@ public class SettingsDialog extends Dialog {
                         break;
                 }
 
-                UsersSettings usersSettings = UsersSettings.getUsersSettings();
-                usersSettings.setLanguage(locale.getLanguage());
-                usersSettings.save();
 
-                Resources res = getContext().getResources();
-                // Change locale settings in the app.
-                DisplayMetrics dm = res.getDisplayMetrics();
-                android.content.res.Configuration conf = res.getConfiguration();
-                conf.locale = locale;
-                res.updateConfiguration(conf, dm);
-//                getContext().startActivity(intent);
+                UsersSettings.getUsersSettings().setLanguage(locale.getLanguage());
+
+
+                UIhelper.setConfigs();
+//                Resources res = getContext().getResources();
+//                 Change locale settings in the app.
+//                DisplayMetrics dm = res.getDisplayMetrics();
+//                android.content.res.Configuration conf = res.getConfiguration();
+//                conf.locale = locale;
+//                res.updateConfiguration(conf, dm);
+
                 menuListener.onLangChanged();
                 dismiss();
             }

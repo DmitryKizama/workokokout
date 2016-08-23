@@ -47,7 +47,7 @@
     <string name="update_name">Изменить название</string>
     <string name="update_weight">Изменить вес</string>
     <string name="update_repeat">Изменить количество повторений</string>
-    <string name="update_approaches">>Изменить количество подходов</string>
+    <string name="update_approaches">Изменить количество подходов</string>
 
     <string name="dmitry">Дмитрий Кизема</string>
     <string name="alexandra">Александра Березюк</string>
@@ -55,18 +55,23 @@
     <string name="sveta">Светлана Коваленко</string>
 
     <string name="tv_text_1">Добро пожаловать в приложение Спортивное рассписание. Это приложение для записи ваших тренировок. Здесь вы найдете короткие инструкции.</string>
-    <string name="tv_text_2">Это ваша начальная страница. Что бы добавить упражнение нажмите кнопку "плюс", внизу экрана. Диалоговое окно, что откроется, показано ниже</string>
-    <string name="tv_text_3">Крассным кругом обозначено нормальное количество букв в названии тренировок, но если не влазит, ничего страшного</string>
+    <string name="tv_text_2">Это ваша начальная страница. Чтобы добавить упражнение, нажмите кнопку "плюс" внизу экрана. Диалоговое окно, что откроется, показано ниже</string>
+    <string name="tv_text_3">Красным кругом обозначено нормальное количество букв в названии тренировок, но если не влазит, ничего страшного</string>
     <string name="tv_text_4">Для примера: введите имя тренировки - "отжимания", вес (килограммы) - "10", Повторений - "15", Подходов - "3".</string>
     <string name="tv_text_5">Зажмите элемент из списка упражнений</string>
-    <string name="tv_text_6">Что бы отменить зажатие, кликните в любую часть экрана</string>
+    <string name="tv_text_6">Чтобы отменить зажатие, кликните в любую часть экрана</string>
     <string name="tv_text_7">Если хотите изменить название, вес, повторения, подходы - кликните на соответствующую позицию</string>
-    <string name="tv_text_8">Будьте внимательны, вес, повторения, подходы должы быть только цыфры!</string>
+    <string name="tv_text_8">Будьте внимательны, вес, повторения, подходы должны быть только цифры!</string>
     <string name="tv_text_9">Тренируйтесь :)</string>
 
     <string name="never_say_no_to_panda">Никогда не говори нет панде</string>
     <string name="follow_the_schedule_go_to_sleep">Следуй графику - иди спать</string>
     <string name="don_t_forget_about_dumplings_eat">Не забывай про пельмешки - ешь</string>
     <string name="transform_soft_and_fluffy_into_strong_and_fluffy">Преврати мягкое и пушистое в твердое и пушистое</string>
+    <string name="it_s_a_high_time">Самое время для великих свершений</string>
+    <string name="start_small">Начни с малого</string>
+    <string name="why_so_serious">Чего такой серъезный?</string>
+    <string name="why_do_we_fall">Зачем люди падают?</string>
+    <string name="do_penguins_have_knees">Есть ли у пингвинов колени?</string>
 
 </resources>

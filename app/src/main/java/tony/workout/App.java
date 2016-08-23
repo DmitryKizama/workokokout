@@ -4,9 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.activeandroid.ActiveAndroid;
-import com.activeandroid.Configuration;
 
-import tony.workout.data.InputData;
+import tony.workout.data.UsersSettings;
 import tony.workout.helper.UIhelper;
 
 public class App extends Application {
@@ -16,13 +15,17 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        ActiveAndroid.initialize(this);
         appContext = getApplicationContext();
-
         UIhelper.init(appContext);
+
+        UsersSettings.create();
+        UIhelper.setConfigs();
+
+
 //        Configuration.Builder config = new Configuration.Builder(this);
 //        config.addModelClasses(InputData.class);
-        ActiveAndroid.initialize(this);
+
     }
 
     public static synchronized Context getAppContext() {

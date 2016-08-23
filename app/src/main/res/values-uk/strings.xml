@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Спортивний розклад</string>
+
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Русский</item>
+        <item>Українська</item>
+    </string-array>
+
+    <string name="mon">Понеділок</string>
+    <string name="tue">Вівторок</string>
+    <string name="wed">Середа</string>
+    <string name="thu">Четвер</string>
+    <string name="fri">П`ятниця</string>
+    <string name="sut">Субота</string>
+    <string name="sun">Неділя</string>
+
+    <string name="trainings">Тренування</string>
+    <string name="how_to_use">Інструкції</string>
+    <string name="settings">Налаштування</string>
+    <string name="tip_of_day">Порада дня:</string>
+    <string name="workout">Назва</string>
+    <string name="name">тренування:</string>
+    <string name="weight">Вага:</string>
+    <string name="repeat">Повтори:</string>
+    <string name="amount">Підходи:</string>
+
+    <string name="pandas_creators">Панди-творці</string>
+    <string name="development">Розробники:</string>
+    <string name="design">Дизайнери:</string>
+    <string name="special_thanks">Подяка:</string>
+    <string name="contact_us_1">Пишіть нам з або без причини :)</string>
+    <string name="contact_us_2">facebook.com/st.dmytro</string>
+    <string name="choose_language">Мова</string>
+
+    <string name="turn_notification">Увімкнути сповіщення</string>
+    <string name="enter_following">Введіть наступне</string>
+    <string name="name_trainings">Назва тренування:</string>
+    <string name="repetition">Повтори:</string>
+    <string name="approaches">Підходи:</string>
+
+    <string name="btn_rate">Оцінити</string>
+    <string name="btn_cancel">Заплющити</string>
+    <string name="btn_apply">Зберегти</string>
+    <string name="attention">Тільки числа!</string>
+    <string name="its_not_working">Не працює у цій версії</string>
+
+    <string name="update_name">Змінити назву</string>
+    <string name="update_weight">Змінити вагу</string>
+    <string name="update_repeat">Змінити кількість повторів</string>
+    <string name="update_approaches">Змінити кількість підходів</string>
+
+    <string name="dmitry">Дмитро Кізема</string>
+    <string name="alexandra">Олександра Березюк</string>
+    <string name="anton">Антон Кізема</string>
+    <string name="sveta">Світлана Коваленко</string>
+
+    <string name="tv_text_1">Ласкаво просимо до додатку Спортивний розклад. Це додаток для запису ваших тренувань. Тут ви знайдете короткі інструкції.</string>
+    <string name="tv_text_2">Це ваша початкова сторінка. Щоб додати вправу, натисніть кнопку "плюс" знизу екрана. Діалогове вікно, що відкриється, показане нижче.</string>
+    <string name="tv_text_3">Червоним колом позначена нормальна кількість літер у назві тренування, але якщо не влазить, нічого страшного. </string>
+    <string name="tv_text_4">Для прикладу: введіть назву тренування - "віджимання", вагу (кілограми) - "10", Повторів - "15", Підходів - "3".</string>
+    <string name="tv_text_5">Затисніть елемент зі списку.</string>
+    <string name="tv_text_6">Щоб відмінити затискання, кликніть на будь-яку частину екрана.</string>
+    <string name="tv_text_7">Якщо хочете змінити назву, вагу, повтори, підходи - клікніть на відповідну позицію.</string>
+    <string name="tv_text_8">Будьте уважні: вага, повтори, підходи мають бути лише цифри!</string>
+    <string name="tv_text_9">Тренуйтеся!</string>
+
+    <string name="never_say_no_to_panda">Ніколи не кажи ні панді</string>
+    <string name="follow_the_schedule_go_to_sleep">Слідуй графіку - йди спати</string>
+    <string name="don_t_forget_about_dumplings_eat">Не забувай про пельмешки - їж</string>
+    <string name="transform_soft_and_fluffy_into_strong_and_fluffy">Перетвори м`яке та пухнасте у велике та пухнасте</string>
+    <string name="it_s_a_high_time">Час для великих справ</string>
+    <string name="start_small">Почніть з малого, закінчи великим</string>
+    <string name="why_so_serious">Чому такий серйозний?</string>
+    <string name="why_do_we_fall">Все забирай, нічого не віддавай</string>
+    <string name="do_penguins_have_knees">Чи є у пінгвінів коліна?</string>
+
+</resources>

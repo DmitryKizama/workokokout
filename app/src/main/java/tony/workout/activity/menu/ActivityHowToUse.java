@@ -1,6 +1,5 @@
 package tony.workout.activity.menu;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -22,8 +21,9 @@ import android.widget.ImageView;
 
 import tony.workout.R;
 import tony.workout.activity.DayActivity;
+import tony.workout.helper.UIhelper;
 
-public class ActivityHowToUse extends FragmentActivity implements Menu.MenuCallback{
+public class ActivityHowToUse extends FragmentActivity implements Menu.MenuCallback {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -47,6 +47,7 @@ public class ActivityHowToUse extends FragmentActivity implements Menu.MenuCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        UIhelper.setConfigs();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_for_how_to_use);
 

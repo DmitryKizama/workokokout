@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parentInRate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shadow_1"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/rate_text"
+        android:textSize="26sp" />
+
+    <RatingBar
+        android:id="@+id/ratingbarInRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:numStars="5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnOkInRate"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            fancy:fb_defaultColor="@color/background_color"
+            fancy:fb_text="@string/btn_ok"
+            fancy:fb_textColor="@color/orange" />
+
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#BDBDBD" />
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btnCancelInRate"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            fancy:fb_defaultColor="@color/background_color"
+            fancy:fb_text="@string/btn_cancel"
+            fancy:fb_textColor="@color/primary" />
+
+    </LinearLayout>
+
+</LinearLayout>
