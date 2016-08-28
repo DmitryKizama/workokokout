@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sports schedule</string>
+    <string name="app_name">Sport schedule</string>
 
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
@@ -28,7 +28,7 @@
     <string name="repeat">Repeat:</string>
     <string name="amount">Amount:</string>
 
-    <string name="pandas_creators">Pandas-creators</string>
+    <string name="pandas_creators">Creators</string>
     <string name="development">Development:</string>
     <string name="design">Design:</string>
     <string name="special_thanks">Special thanks:</string>

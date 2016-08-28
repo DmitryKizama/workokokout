@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -38,6 +39,7 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
     private Menu mMenu;
     private DrawerLayout mDrawerLayout;
     private ImageView ivSettings;
+    private HorizontalScrollView horizontalScrollView;
 
     private Animation anim;
     //    private DayFragment dayFragment;
@@ -49,7 +51,6 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         UIhelper.setConfigs();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.day_activity);
-
 
 
         mMenu = (Menu)
@@ -133,6 +134,9 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
                 break;
         }
 
+        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.horizontal_scroll);
+        horizontalScrollView.setScrollBarSize(UIhelper.getW() + 30);
+
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 
@@ -191,6 +195,8 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
 //                Log.d(TAG, "onPageScrollStateChanged, position = " + state);
             }
         });
+
+
     }
 
     @Override

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Спортивное рассписание</string>
+    <string name="app_name">Спортивное расписание</string>
 
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Русский</item>
+        <item>Українська</item>
+    </string-array>
 
     <string name="mon">Понедельник</string>
     <string name="tue">Вторник</string>
@@ -24,7 +30,7 @@
     <string name="repeat">Повторы:</string>
     <string name="amount">Подходы:</string>
 
-    <string name="pandas_creators">Панды-создатели</string>
+    <string name="pandas_creators">Создатели</string>
     <string name="development">Разработчики:</string>
     <string name="design">Дизайнеры:</string>
     <string name="special_thanks">Благодарности:</string>

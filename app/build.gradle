@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "tony.workout"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -34,3 +34,4 @@ dependencies {
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     compile "com.daimajia.swipelayout:library:1.2.0@aar"
 }
+

@@ -4,6 +4,12 @@
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
 
+    <string-array name="languages">
+        <item>English</item>
+        <item>Русский</item>
+        <item>Українська</item>
+    </string-array>
+
     <string name="mon">Понеділок</string>
     <string name="tue">Вівторок</string>
     <string name="wed">Середа</string>
