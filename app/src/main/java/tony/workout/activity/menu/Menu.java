@@ -2,6 +2,7 @@ package tony.workout.activity.menu;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import mehdi.sakout.fancybuttons.FancyButton;
 import tony.workout.R;
 import tony.workout.activity.DayActivity;
 
@@ -28,13 +31,14 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
     private View parentView;
     private LinearLayout pandaLayout;
     private TextView tvTip;
+    private FancyButton btn_facebook, btn_twitter, btn_vk;
 
     private LinearLayout tvSettings, tvHowToUse, tvTrainings;
 //    private LinearLayout tvProfile;
 
     private MenuCallback listener;
 
-    public interface MenuCallback{
+    public interface MenuCallback {
         void onChangeLang();
     }
 
@@ -75,7 +79,7 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
 
         try {
             listener = (MenuCallback) activity;
-        } catch (ClassCastException e){
+        } catch (ClassCastException e) {
             Log.e("ERROR", "Main activity should implement " + MenuCallback.class);
         }
     }
@@ -96,6 +100,9 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
         tvSettings = (LinearLayout) parentView.findViewById(R.id.tvSettingsInMenu);
 //        tvProfile = (LinearLayout) parentView.findViewById(R.id.tvProfileInMenu);
         tvTrainings = (LinearLayout) parentView.findViewById(R.id.tvTrainingInMenu);
+        btn_facebook = (FancyButton) parentView.findViewById(R.id.btn_facebook);
+        btn_twitter = (FancyButton) parentView.findViewById(R.id.btn_twitter);
+        btn_vk = (FancyButton) parentView.findViewById(R.id.btn_vk);
 
         tvTip = (TextView) parentView.findViewById(R.id.text_view_tip);
         tvTip.setText(insertNewTip());
@@ -149,6 +156,27 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
             }
         });
 
+        btn_facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharingToSocialMedia("com.facebook.katana");
+            }
+        });
+
+        btn_vk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharingToSocialMedia("com.vkontakte.android");
+            }
+        });
+
+        btn_twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharingToSocialMedia("com.twitter.android");
+            }
+        });
+
         return parentView;
     }
 
@@ -186,12 +214,35 @@ public class Menu extends Fragment implements SettingsDialog.MenuListener {
         list.add(getResources().getString(R.string.transform_soft_and_fluffy_into_strong_and_fluffy));
         list.add(getResources().getString(R.string.it_s_a_high_time));
         list.add(getResources().getString(R.string.start_small));
-        list.add(getResources().getString(R.string.why_so_serious));
-        list.add(getResources().getString(R.string.why_do_we_fall));
-        list.add(getResources().getString(R.string.do_penguins_have_knees));
         Random random = new Random();
         String strTip = list.get(random.nextInt(list.size()));
         return strTip;
     }
 
+    private void SharingToSocialMedia(String application) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=" + getContext().getPackageName());
+        boolean installed = appInstalledOrNot(application);
+        if (installed) {
+            intent.setPackage(application);
+            startActivity(intent);
+        } else {
+            startActivity(Intent.createChooser(intent, getResources().getString(R.string.choose_another)));
+        }
+    }
+
+    private boolean appInstalledOrNot(String uri) {
+        PackageManager pm = getContext().getPackageManager();
+        boolean app_installed;
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        }
+        catch (PackageManager.NameNotFoundException e) {
+            app_installed = false;
+        }
+        return app_installed;
+    }
 }

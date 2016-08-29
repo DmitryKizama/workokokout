@@ -38,6 +38,13 @@
     <string name="contact_us_2">facebook.com/st.dmytro</string>
     <string name="choose_language">Язык</string>
 
+    <string name="share">Поделиться:</string>
+    <string name="app_name_1">WORK</string>
+    <string name="app_name_2">OUT</string>
+    <string name="app_name_3">SCHEDULE</string>
+    <string name="recommendation_subject">Отличное приложение</string>
+    <string name="choose_another">У вас нет этого приложения, но вы можете использовать другое:</string>
+
     <string name="turn_notification">Включить оповещения</string>
     <string name="enter_following">Введите следующее:</string>
     <string name="name_trainings">Название тренировки:</string>
@@ -77,9 +84,6 @@
     <string name="transform_soft_and_fluffy_into_strong_and_fluffy">Преврати мягкое и пушистое в твердое и пушистое</string>
     <string name="it_s_a_high_time">Самое время для великих свершений</string>
     <string name="start_small">Начни с малого</string>
-    <string name="why_so_serious">Чего такой серъезный?</string>
-    <string name="why_do_we_fall">Зачем люди падают?</string>
-    <string name="do_penguins_have_knees">Есть ли у пингвинов колени?</string>
 
     <string name="rate_text">Ваше мнение</string>
     <string name="thanks">Спасибо за мнение</string>

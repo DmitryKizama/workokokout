@@ -1,64 +1,57 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/linear_layout_in_menu"
             android:layout_width="match_parent"
-            android:layout_height="128dp"
-            android:background="@color/primary"
-            android:orientation="horizontal"
-            android:weightSum="4">
+            android:layout_height="222dp"
+            android:background="@drawable/custom_back_menu"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_panda_main_menu" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_weight="3"
-                android:orientation="vertical"
-                android:weightSum="3">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="bottom"
-                    android:text="@string/app_name"
+                    android:text="@string/app_name_1"
+                    android:textColor="@color/background_color"
+                    android:textSize="@dimen/title_size_in_menu"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name_2"
                     android:textColor="@color/orange"
-                    android:textSize="@dimen/title_size_in_menu" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right|bottom"
-                    android:text="@string/tip_of_day"
-                    android:textColor="@color/background_color"
-                    android:textSize="17sp" />
-
-                <TextView
-                    android:id="@+id/text_view_tip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="never forget about the food (dumplings)"
-                    android:textColor="@color/background_color"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/title_size_in_menu"
+                    android:textStyle="bold" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/app_name_3"
+                android:textColor="@color/background_color"
+                android:textSize="@dimen/title_size_in_menu"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
 
@@ -70,25 +63,28 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="8">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="7"
                 android:orientation="vertical"
                 android:weightSum="8">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:background="@color/color_tv_under_item" />
 
                 <LinearLayout
                     android:id="@+id/tvTrainingInMenu"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp"
                     android:layout_weight="2"
                     android:orientation="horizontal">
 
@@ -98,50 +94,21 @@
                         android:src="@mipmap/ic_panda_trainings" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/trainings"
+                        android:textColor="@color/color_of_words"
                         android:textSize="@dimen/text_size_in_menu" />
 
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:background="@color/color_tv_under_item" />
-
-                <!-- <LinearLayout
-                    android:id="@+id/tvProfileInMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_panda" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Profile"
-                        android:textSize="@dimen/text_size_in_menu" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:background="@color/color_tv_under_item" /> -->
 
                 <LinearLayout
                     android:id="@+id/tvInfoInMenu"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
                     android:layout_weight="2"
                     android:orientation="horizontal">
 
@@ -151,23 +118,20 @@
                         android:src="@mipmap/ic_panda_htu" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/how_to_use"
+                        android:textColor="@color/color_of_words"
                         android:textSize="@dimen/text_size_in_menu" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:background="@color/color_tv_under_item" />
 
                 <LinearLayout
                     android:id="@+id/tvSettingsInMenu"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
                     android:layout_weight="2"
                     android:orientation="horizontal">
 
@@ -177,24 +141,116 @@
                         android:src="@mipmap/ic_panda_settings" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/settings"
+                        android:textColor="@color/color_of_words"
                         android:textSize="@dimen/text_size_in_menu" />
 
 
                 </LinearLayout>
 
-
-                <TextView
+                <LinearLayout
+                    android:id="@+id/tvShare"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/color_tv_under_item" />
+                    android:layout_height="0dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_panda_main_menu" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/share"
+                        android:textColor="@color/color_of_words"
+                        android:textSize="@dimen/text_size_in_menu" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="35dp">
+
+                    <mehdi.sakout.fancybuttons.FancyButton
+                        android:id="@+id/btn_facebook"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="15dp"
+                        fancy:fb_defaultColor="#3b5998"
+                        fancy:fb_focusColor="#5577bd"
+                        fancy:fb_fontIconResource="&#xf09a;"
+                        fancy:fb_fontIconSize="25sp"
+                        fancy:fb_radius="32dp"
+                        fancy:fb_textColor="#FFFFFF" />
+
+                    <mehdi.sakout.fancybuttons.FancyButton
+                        android:id="@+id/btn_twitter"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="15dp"
+                        fancy:fb_defaultColor="#55acee"
+                        fancy:fb_focusColor="#313131"
+                        fancy:fb_fontIconResource="&#xf099;"
+                        fancy:fb_fontIconSize="25sp"
+                        fancy:fb_radius="32dp"
+                        fancy:fb_textColor="#FFFFFF" />
+
+                    <mehdi.sakout.fancybuttons.FancyButton
+                        android:id="@+id/btn_vk"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        fancy:fb_defaultColor="#4c75a3"
+                        fancy:fb_focusColor="#1A237E"
+                        fancy:fb_fontIconResource="&#xf189;"
+                        fancy:fb_fontIconSize="25sp"
+                        fancy:fb_radius="32dp"
+                        fancy:fb_textColor="#FFFFFF" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/tip_of_day"
+            android:textColor="@color/background_color"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/text_view_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="never forget about the food (dumplings)"
+            android:textColor="@color/background_color"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:src="@drawable/main_panda" />
 
 </RelativeLayout>

@@ -134,9 +134,6 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
                 break;
         }
 
-        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.horizontal_scroll);
-        horizontalScrollView.setScrollBarSize(UIhelper.getW() + 30);
-
         pager = (ViewPager) findViewById(R.id.pager);
         btnAdd = (FloatingActionButton) findViewById(R.id.btnAdd);
 
@@ -150,9 +147,9 @@ public class DayActivity extends AppCompatActivity implements StartDialog.Dialog
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(pager);
 
-        btnAdd.setColorNormal(getResources().getColor(R.color.primary));
-        btnAdd.setColorPressed(getResources().getColor(R.color.primary_pressed));
-        btnAdd.setColorRipple(getResources().getColor(R.color.primary_pressed));
+        btnAdd.setColorNormal(getResources().getColor(R.color.orange));
+        btnAdd.setColorPressed(getResources().getColor(R.color.orange_dark));
+        btnAdd.setColorRipple(getResources().getColor(R.color.orange_dark));
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
